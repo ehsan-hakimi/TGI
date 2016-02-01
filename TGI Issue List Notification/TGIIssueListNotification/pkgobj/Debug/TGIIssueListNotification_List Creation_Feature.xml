@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="TGI Issue Notification List Creattion" Id="adca948b-9479-4e9a-98ec-5abe6e70587f" ReceiverAssembly="Microsoft.SharePoint.WorkflowServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" ReceiverClass="Microsoft.SharePoint.WorkflowServices.SPWorkflowPackageFeatureReceiver" Scope="Web">
+  <ElementManifests>
+    <ElementManifest Location="Issue\Elements.xml" />
+    <ElementManifest Location="WorkflowHistoryList\Elements.xml" />
+    <ElementManifest Location="WorkflowTaskList\Elements.xml" />
+    <ElementManifest Location="NotifyAssignedStaffbyEmail\Elements.xml" />
+    <ElementFile Location="NotifyAssignedStaffbyEmail\Workflow.xaml" />
+    <ElementFile Location="NotifyAssignedStaffbyEmail\WorkflowStartAssociation" />
+    <ElementFile Location="NotifyAssignedStaffbyEmail\ItemAddedAssociation" />
+  </ElementManifests>
+</Feature>

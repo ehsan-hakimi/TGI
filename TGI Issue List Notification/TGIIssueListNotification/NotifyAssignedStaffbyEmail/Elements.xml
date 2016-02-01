@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="NotifyAssignedStaffbyEmail" Url="wfsvc/b2fa0013ea93400e811d978762c939ba">
+    <File Url="Workflow.xaml" Type="GhostableInLibrary" Path="NotifyAssignedStaffbyEmail\Workflow.xaml" DoGUIDFixUp="TRUE" ReplaceContent="TRUE">
+      <Property Name="ContentType" Value="WorkflowServiceDefinition" />
+      <Property Name="isReusable" Value="true" />
+      <Property Name="RequiresInitiationForm" Value="False" />
+      <Property Name="RequiresAssociationForm" Value="False" />
+      <Property Name="WSPublishState" Value="3" />
+      <Property Name="WSDisplayName" Value="Notify Assigned Staff by Email" />
+      <Property Name="WSDescription" Value="'Notify Assigned Staff by Email'" />
+      <!-- If you change the name or Url of your custom initiation or association form, 
+           remember to update the corresponding property value (InitiationUrl or AssociationUrl) to match the new web relative url.
+      -->
+      <Property Name="RestrictToType" Value="List" />
+      <Property Name="RestrictToScope" Value="{$ListId:Lists/Issue;}" />
+    </File>
+    <File Url="WorkflowStartAssociation" Path="NotifyAssignedStaffbyEmail\WorkflowStartAssociation" Type="GhostableInLibrary">
+      <Property Name="WSDisplayName" Value="NotifyAssignedStaffbyEmail - Workflow Start" />
+      <Property Name="ContentType" Value="WorkflowServiceSubscription" />
+      <Property Name="WSPublishState" Value="3" />
+      <Property Name="WSEventType" Value="WorkflowStart" />
+      <Property Name="WSEnabled" Value="true" />
+      <Property Name="WSGUID" Value="0536d639-3544-490b-8460-5226cb90b8b3" />
+      <Property Name="WSEventSourceGUID" Value="{$ListId:Lists/Issue;}" />
+      <Property Name="Microsoft.SharePoint.ActivationProperties.ListId" Value="{$ListId:Lists/Issue;}" />
+      <Property Name="HistoryListId" Value="{$ListId:Lists/WorkflowHistoryList;}" />
+      <Property Name="TaskListId" Value="{$ListId:Lists/WorkflowTaskList;}" />
+    </File>
+    <File Url="ItemAddedAssociation" Path="NotifyAssignedStaffbyEmail\ItemAddedAssociation" Type="GhostableInLibrary">
+      <Property Name="WSDisplayName" Value="NotifyAssignedStaffbyEmail - Item Added" />
+      <Property Name="ContentType" Value="WorkflowServiceSubscription" />
+      <Property Name="WSPublishState" Value="3" />
+      <Property Name="WSEventType" Value="ItemAdded" />
+      <Property Name="WSEnabled" Value="true" />
+      <Property Name="WSGUID" Value="69c103e7-980e-426f-909c-aa674d5cc2bf" />
+      <Property Name="WSEventSourceGUID" Value="{$ListId:Lists/Issue;}" />
+      <Property Name="Microsoft.SharePoint.ActivationProperties.ListId" Value="{$ListId:Lists/Issue;}" />
+      <Property Name="HistoryListId" Value="{$ListId:Lists/WorkflowHistoryList;}" />
+      <Property Name="TaskListId" Value="{$ListId:Lists/WorkflowTaskList;}" />
+    </File>
+  </Module>
+  <ListInstance FeatureId="{2c63df2b-ceab-42c6-aeff-b3968162d4b1}"
+                TemplateType="4501"
+                Title="wfsvc"
+                Description="This list instance is used by SharePoint to keep track of workflows. Do not modify."
+                Url="wfsvc"
+                RootWebOnly="FALSE" />
+</Elements>

@@ -1,0 +1,15 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\bin\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\bin\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\bin\Debug\PartitionedWorkflowBuild\Microsoft.SharePoint.DesignTime.Activities.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\Workflow.g.xaml
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.NotifyAssignedStaffbyEmail_Workflow_BeforeInitializeComponentHelper.txt
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\_TGIIssueListNotification.g.cs
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\Workflow.g.cs
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.NotifyAssignedStaffbyEmail_Workflow_BeforeInitializeComponentHelper.cs
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\_AssemblyInfo_0effe06ae51a4703a34f1b04ad982c10.g.cs
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\51vme1no.tmp_proj.XamlGeneratedCodeFileListAbsolute.txt
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\51vme1no.tmp_proj.XamlGeneratedXamlFileListAbsolute.txt
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.NotifyAssignedStaffbyEmail_Workflow_CompiledExpressionRoot.cs
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml

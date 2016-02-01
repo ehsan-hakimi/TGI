@@ -1,0 +1,274 @@
+<Activity mc:Ignorable="sads" x:Class="TGIIssueListNotification.NotifyAssignedStaffbyEmail.Workflow"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:made="clr-namespace:Microsoft.Activities.Design.ExpressionTranslation;assembly=Microsoft.Activities.Design"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities"
+ xmlns:p1="wf://workflow.windows.net/$Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sads:DebugSymbol.Symbol="9xDysEs2/dpWkS1jjE4+PKBymgFDOlxVc2Vyc1xBZG1pbmlzdHJhdG9yXERvY3VtZW50c1xWaXN1YWwgU3R1ZGlvIDIwMTNcUHJvamVjdHNcVEdJIElzc3VlIExpc3QgTm90aWZpY2F0aW9uXFRHSUlzc3VlTGlzdE5vdGlmaWNhdGlvblxOb3RpZnlBc3NpZ25lZFN0YWZmYnlFbWFpbFxXb3JrZmxvdy54YW1sCS0DmwEOAgEBNwU9GQIBKz4FUhsCASZTBWccAgEbaAVzGQIBFnQFeigCARJ7BYEBGQIBDoIBBZIBEAIBBZMBBZkBGQIBAg==">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="p:DynamicValue" x:Name="__ReferenceID0" Name="dv_0" />
+      <Variable x:TypeArguments="x:Int32" x:Name="__ReferenceID4" Name="AssignedTo" />
+      <Variable x:TypeArguments="sco:Collection(x:String)" x:Name="__ReferenceID5" Name="recipients" />
+      <Variable x:TypeArguments="x:String" x:Name="__ReferenceID1" Name="issueTitle" />
+      <Variable x:TypeArguments="x:String" x:Name="__ReferenceID2" Name="IssueID" />
+      <Variable x:TypeArguments="x:String" x:Name="__ReferenceID6" Name="itemURL" />
+      <Variable x:TypeArguments="s:DateTime" x:Name="__ReferenceID3" Name="DueDate" />
+    </Sequence.Variables>
+    <p1:WriteToHistory>
+      <p1:WriteToHistory.Message>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="String.Format(&quot;Notification workflow started.&quot;)">
+            <p:FormatString Format="Notification workflow started.">
+              <sco:Collection x:TypeArguments="InArgument" />
+            </p:FormatString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:WriteToHistory.Message>
+    </p1:WriteToHistory>
+    <p1:LookupSPListItem ItemGuid="{x:Null}" Properties="{x:Null}">
+      <p1:LookupSPListItem.ItemId>
+        <InArgument x:TypeArguments="x:Int32">
+          <p:ExpressionContainerValue x:TypeArguments="x:Int32">
+            <p1:GetCurrentItemId />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:LookupSPListItem.ItemId>
+      <p1:LookupSPListItem.ListId>
+        <InArgument x:TypeArguments="s:Guid">
+          <p:ExpressionContainerValue x:TypeArguments="s:Guid">
+            <p1:GetCurrentListId />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:LookupSPListItem.ListId>
+      <p1:LookupSPListItem.Result>
+        <OutArgument x:TypeArguments="p:DynamicValue">
+          <p:ExpressionContainerReference x:TypeArguments="p:DynamicValue" DisplayName="dv_0">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="p:DynamicValue" x:Key="dv_0">
+                <VariableReference x:TypeArguments="p:DynamicValue" Variable="{x:Reference __ReferenceID0}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="p:DynamicValue" ArgumentName="dv_0" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </p1:LookupSPListItem.Result>
+    </p1:LookupSPListItem>
+    <p:GetODataProperties DisplayName="GetDynamicValueProperties">
+      <p:GetODataProperties.Source>
+        <InArgument x:TypeArguments="p:DynamicValue">
+          <p:ExpressionContainerValue x:TypeArguments="p:DynamicValue" DisplayName="dv_0">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="p:DynamicValue" x:Key="dv_0">
+                <VariableValue x:TypeArguments="p:DynamicValue" Variable="{x:Reference __ReferenceID0}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <ArgumentValue x:TypeArguments="p:DynamicValue" ArgumentName="dv_0" />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p:GetODataProperties.Source>
+      <scg:Dictionary x:TypeArguments="x:String, OutArgument">
+        <OutArgument x:TypeArguments="x:String" x:Key="Title">
+          <p:ExpressionContainerReference x:TypeArguments="x:String" DisplayName="issueTitle">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="x:String" x:Key="issueTitle">
+                <VariableReference x:TypeArguments="x:String" Variable="{x:Reference __ReferenceID1}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="x:String" ArgumentName="issueTitle" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="ID">
+          <p:ExpressionContainerReference x:TypeArguments="x:String" DisplayName="IssueID">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="x:String" x:Key="IssueID">
+                <VariableReference x:TypeArguments="x:String" Variable="{x:Reference __ReferenceID2}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="x:String" ArgumentName="IssueID" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="s:DateTime" x:Key="DueDate">
+          <p:ExpressionContainerReference x:TypeArguments="s:DateTime" DisplayName="DueDate">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="s:DateTime" x:Key="DueDate">
+                <VariableReference x:TypeArguments="s:DateTime" Variable="{x:Reference __ReferenceID3}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="s:DateTime" ArgumentName="DueDate" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="AssignedToId">
+          <p:ExpressionContainerReference x:TypeArguments="x:Int32" DisplayName="AssignedTo">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="x:Int32" x:Key="AssignedTo">
+                <VariableReference x:TypeArguments="x:Int32" Variable="{x:Reference __ReferenceID4}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="x:Int32" ArgumentName="AssignedTo" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </scg:Dictionary>
+    </p:GetODataProperties>
+    <p:BuildCollection x:TypeArguments="x:String">
+      <p:BuildCollection.Result>
+        <OutArgument x:TypeArguments="sco:Collection(x:String)">
+          <p:ExpressionContainerReference x:TypeArguments="sco:Collection(x:String)" DisplayName="recipients">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="sco:Collection(x:String)" x:Key="recipients">
+                <VariableReference x:TypeArguments="sco:Collection(x:String)" Variable="{x:Reference __ReferenceID5}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="sco:Collection(x:String)" ArgumentName="recipients" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </p:BuildCollection.Result>
+      <p:BuildCollection.Values>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="AssignedTo.ToString()">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="AssignedTo">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID4}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:ToString>
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="AssignedTo" />
+              </InArgument>
+            </p:ToString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p:BuildCollection.Values>
+    </p:BuildCollection>
+    <p1:LookupWorkflowContextProperty PropertyName="CurrentItemUrl">
+      <p1:LookupWorkflowContextProperty.Result>
+        <OutArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerReference x:TypeArguments="x:String" DisplayName="itemURL">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="x:String" x:Key="itemURL">
+                <VariableReference x:TypeArguments="x:String" Variable="{x:Reference __ReferenceID6}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="x:String" ArgumentName="itemURL" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </p1:LookupWorkflowContextProperty.Result>
+    </p1:LookupWorkflowContextProperty>
+    <p1:WriteToHistory>
+      <p1:WriteToHistory.Message>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="String.Format(&quot;Before send email: itemURL = {0} - issue ID= {1}&quot;, itemURL, IssueID)">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="itemURL">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID6}" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object" x:Key="IssueID">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID2}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:FormatString Format="Before send email: itemURL = {0} - issue ID= {1}">
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="itemURL" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="IssueID" />
+              </InArgument>
+            </p:FormatString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:WriteToHistory.Message>
+    </p1:WriteToHistory>
+    <p1:Email AdditionalHeaders="{x:Null}" BCC="{x:Null}" CC="{x:Null}">
+      <p1:Email.Body>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="String.Format(&quot;Dear Sir/Madam,&lt;br&gt;&lt;br&gt;This is a system generated email.&lt;BR&gt;For more details, please click on the Issue URL below. &lt;p&gt;Title: {0}&lt;/p&gt;&lt;p&gt;Due Date: {1}&lt;/p&gt;&lt;p&gt;Issue URL: {2}&lt;/p&gt;&lt;br&gt;Best regards,&quot;, issueTitle, DueDate.ToString(), itemURL)">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="issueTitle">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID1}" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object" x:Key="DueDate">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID3}" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object" x:Key="itemURL">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID6}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:FormatString Format="Dear Sir/Madam,&lt;br&gt;&lt;br&gt;This is a system generated email.&lt;BR&gt;For more details, please click on the Issue URL below. &lt;p&gt;Title: {0}&lt;/p&gt;&lt;p&gt;Due Date: {1}&lt;/p&gt;&lt;p&gt;Issue URL: {2}&lt;/p&gt;&lt;br&gt;Best regards,">
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="issueTitle" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object">
+                <p:Convert x:TypeArguments="x:String, x:Object">
+                  <InArgument x:TypeArguments="x:String">
+                    <p:ToString CultureName="{x:Null}" Format="{x:Null}">
+                      <p:ToString.Result>
+                        <OutArgument x:TypeArguments="x:String" />
+                      </p:ToString.Result>
+                      <InArgument x:TypeArguments="x:Object">
+                        <ArgumentValue x:TypeArguments="x:Object" ArgumentName="DueDate" />
+                      </InArgument>
+                    </p:ToString>
+                  </InArgument>
+                </p:Convert>
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="itemURL" />
+              </InArgument>
+            </p:FormatString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:Email.Body>
+      <p1:Email.Subject>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="String.Format(&quot;Issue Number # {0} has been assigned to you&quot;, IssueID)">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="IssueID">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID2}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:FormatString Format="Issue Number # {0} has been assigned to you">
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="IssueID" />
+              </InArgument>
+            </p:FormatString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:Email.Subject>
+      <p1:Email.To>
+        <InArgument x:TypeArguments="sco:Collection(x:String)">
+          <p:ExpressionContainerValue x:TypeArguments="sco:Collection(x:String)" DisplayName="recipients">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="sco:Collection(x:String)" x:Key="recipients">
+                <VariableValue x:TypeArguments="sco:Collection(x:String)" Variable="{x:Reference __ReferenceID5}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <ArgumentValue x:TypeArguments="sco:Collection(x:String)" ArgumentName="recipients" />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:Email.To>
+    </p1:Email>
+    <p1:WriteToHistory>
+      <p1:WriteToHistory.Message>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="String.Format(&quot;workflow finished for item {0}&quot;,IssueID)">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="IssueID">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID2}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:FormatString Format="workflow finished for item {0}">
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="IssueID" />
+              </InArgument>
+            </p:FormatString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:WriteToHistory.Message>
+    </p1:WriteToHistory>
+  </Sequence>
+</Activity>

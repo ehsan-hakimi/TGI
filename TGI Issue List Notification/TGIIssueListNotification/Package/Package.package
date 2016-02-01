@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="00643cdb-98a1-48ba-b1cb-8f19badb3ae9" solutionId="00643cdb-98a1-48ba-b1cb-8f19badb3ae9" resetWebServer="false" sharePointProductVersion="15.0" name="TGI Issue Notification" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="9fe473a2-9ff5-437a-8f31-69b851d109a7" />
+  </features>
+</package>

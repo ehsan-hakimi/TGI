@@ -1,0 +1,5 @@
+obj\Debug\PartitionedWorkflowBuild\_TGIIssueListNotification.g.cs
+obj\Debug\PartitionedWorkflowBuild\Workflow.g.cs
+obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.NotifyAssignedStaffbyEmail_Workflow_BeforeInitializeComponentHelper.cs
+obj\Debug\PartitionedWorkflowBuild\_AssemblyInfo_0effe06ae51a4703a34f1b04ad982c10.g.cs
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TGI Issue List Notification\TGIIssueListNotification\obj\Debug\PartitionedWorkflowBuild\TGIIssueListNotification.NotifyAssignedStaffbyEmail_Workflow_CompiledExpressionRoot.cs
