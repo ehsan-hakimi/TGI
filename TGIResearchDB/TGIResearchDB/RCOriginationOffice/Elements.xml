@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+<Field ID="{47b37248-abae-4913-a062-1bb7fece3f21}" 
+         Name="RCOriginationOffice" 
+         Description="In which TGI office primary investigator is based" 
+         DisplayName="Research Core Origination Office of Primary Investigator" 
+         Type="TaxonomyFieldType" 
+         Required="FALSE" 
+         ShowField="Term1033" 
+         EnforceUniqueValues="FALSE" 
+         DisplaceOnUpgrade="TRUE"  
+         Group="TGI Site Columns" 
+         Overwrite="TRUE">
+   <Customization>
+     <ArrayOfProperty>
+      <Property>
+          <Name>SspId</Name>
+          <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ad30dfe9-aa17-4d1a-9aef-23ab4bbedbf5</Value>
+        </Property>
+      <Property>
+          <Name>GroupId</Name>
+        </Property>
+        <Property>
+          <Name>TermSetId</Name>
+          <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">5d6e29e4-9db0-43ad-bdda-83d74f62d0ec</Value>
+        </Property>
+       <Property>
+          <Name>TextField</Name>
+          <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{4B4EA733-1DB8-4EFB-8B46-B2D0AF19CC89}</Value>
+        </Property>
+
+      </ArrayOfProperty>
+    </Customization>
+  </Field>
+  <Field Type="Note"
+           DisplayName="RCOriginationOffice_0"
+           Name="RCOriginationOfficeTaxHTField0"
+           ID="{4B4EA733-1DB8-4EFB-8B46-B2D0AF19CC89}"
+           ShowInViewForms="FALSE"
+           Required="FALSE"
+           Hidden="TRUE"
+           CanToggleHidden="TRUE"
+           Group="TGI Site Columns"
+           RowOrdinal="0"
+           Overwrite="TRUE"/>
+</Elements>

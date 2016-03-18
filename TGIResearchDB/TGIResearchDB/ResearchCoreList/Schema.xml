@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="ResearchCoreList" Overwrite="TRUE" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/ResearchCoreList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      <ContentType ID="0x01009A284ED7B3E749158DA7ECB5F56BDC89" Name="ResearchCoreCTP" Overwrite="TRUE" Group="TGI Content Types" Description="Research Core List content type " Inherits="TRUE" Version="0">
+        <FieldRefs>
+          <FieldRef ID="{17c6472b-4939-43e8-b220-b30af258f288}" DisplayName="Research Core Acronym" Name="RCAcronym" Required="FALSE" />
+          <FieldRef ID="{a219018f-e948-4342-90d7-4b7895a53612}" DisplayName="Research Core Aim" Required="FALSE" Name="RCAim" />
+          <FieldRef ID="{3a6db9af-745a-473a-813c-8190e67f292e}" DisplayName="Research Core Methodology" Required="FALSE" Name="RCMethodology" />
+          <FieldRef ID="{10de56d4-7373-43e3-a71e-4d7d57e9ddda}" DisplayName="Research Core Media Summary" Required="FALSE" Name="RCMediaSummary" />
+          <FieldRef ID="{676835ee-1798-4fc3-a828-4aa1dd00513a}" DisplayName="Research Core Therapeutic Area" Required="FALSE" Name="RCTherapeuticArea" Format="RadioButtons" />
+          <FieldRef ID="{701d5186-2dcb-4b64-a13f-e579a50e42ff}" DisplayName="Research Core Status" Required="FALSE" Name="RCStatus" Format="Dropdown" />
+          <FieldRef ID="{89250441-1829-459f-89f1-b11a5bbf7f44}" DisplayName="Research Core Funding Status" Required="FALSE" Name="RCFundingStatus" Format="RadioButtons" />
+          <FieldRef ID="{229437fc-5431-4d99-84a0-375f53e57c07}" DisplayName="Research Core is Clinical Trial" Required="FALSE" Name="RCisClinicalTrial" />
+          <FieldRef ID="{e105f209-f775-4b52-b05b-79cfa4a9f33a}" DisplayName="Research Core is Discovery Research" Required="FALSE" Name="RCisDiscoveryResearch" />
+          <FieldRef ID="{8a4bfded-fbf6-4f25-b071-9a5a85cb2a52}" DisplayName="Research Core is Implementation Research" Required="FALSE" Name="RCisImplementationResearch" />
+          <FieldRef ID="{6aa3715a-331a-47c4-bf0c-cbd20408dd26}" DisplayName="Research Core Primary TGI investigator" Required="FALSE" Name="RCPrimaryInvestigator" />
+          <FieldRef ID="{47b37248-abae-4913-a062-1bb7fece3f21}" DisplayName="Research Core Origination Office of Primary Investigator" Required="FALSE" Description="In which TGI office primary investigator is based" Name="RCOriginationOffice" />
+          <FieldRef ID="{7d888b3b-0a21-435c-8e53-773790f1f8fc}" DisplayName="Research Core If Australia then which department" Required="FALSE" Name="RCDepartments" />
+          <FieldRef ID="{1ed6812d-d937-4223-9f57-92b4b08552c7}" DisplayName="Research Core is Cross Regional Research" Required="FALSE" Name="RCisCrossRegionalResearch" />
+          <FieldRef ID="{09719706-4cc1-4c84-906c-f9c8e54597fd}" DisplayName="Research Core TGI Offices which are involved" Required="FALSE" Name="RCTGIOfficesInvolved" />
+          <FieldRef ID="{88561474-5628-474c-9d63-96cac8959b30}" DisplayName="Research Core Project Manager" Required="FALSE" Name="RCProjectManager" />
+          <FieldRef ID="{4B4EA733-1DB8-4EFB-8B46-B2D0AF19CC89}" DisplayName="RCOriginationOffice_0" Required="FALSE" Name="RCOriginationOfficeTaxHTField0" />
+          <FieldRef ID="{4991812E-A01F-4DD0-ADD3-3C583335C92B}" DisplayName="RCTGIOfficesInvolved_0" Required="FALSE" Name="RCTGIOfficesInvolvedTaxHTField0" />
+        </FieldRefs>
+      </ContentType>
+    </ContentTypes>
+    <Fields>
+      <Field ID="{17c6472b-4939-43e8-b220-b30af258f288}" Name="RCAcronym" DisplayName="Research Core Acronym" Type="Text" Overwrite="TRUE" Required="FALSE" Group="TGI Site Columns"></Field>
+      <Field ID="{a219018f-e948-4342-90d7-4b7895a53612}" Name="RCAim" DisplayName="Research Core Aim" Type="Note" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{3a6db9af-745a-473a-813c-8190e67f292e}" Name="RCMethodology" DisplayName="Research Core Methodology" Type="Note" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{10de56d4-7373-43e3-a71e-4d7d57e9ddda}" Name="RCMediaSummary" DisplayName="Research Core Media Summary" Type="Note" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{676835ee-1798-4fc3-a828-4aa1dd00513a}" Name="RCTherapeuticArea" DisplayName="Research Core Therapeutic Area" Type="MultiChoice" Format="RadioButtons" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns">
+        <CHOICES>
+          <CHOICE>Dermatology</CHOICE>
+          <CHOICE>Endocrinology</CHOICE>
+        </CHOICES>
+      </Field>
+      <Field ID="{701d5186-2dcb-4b64-a13f-e579a50e42ff}" Name="RCStatus" DisplayName="Research Core Status" Type="Choice" Format="Dropdown" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns">
+        <Default>Active</Default>
+        <CHOICES>
+          <CHOICE>Active</CHOICE>
+          <CHOICE>Completed</CHOICE>
+        </CHOICES>
+      </Field>
+      <Field ID="{89250441-1829-459f-89f1-b11a5bbf7f44}" Name="RCFundingStatus" DisplayName="Research Core Funding Status" Type="Choice" Format="RadioButtons" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns">
+        <Default>Funded</Default>
+        <CHOICES>
+          <CHOICE>Funded</CHOICE>
+          <CHOICE>Unfunded</CHOICE>
+        </CHOICES>
+      </Field>
+      <Field ID="{229437fc-5431-4d99-84a0-375f53e57c07}" Name="RCisClinicalTrial" DisplayName="Research Core is Clinical Trial" Type="Boolean" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{e105f209-f775-4b52-b05b-79cfa4a9f33a}" Name="RCisDiscoveryResearch" DisplayName="Research Core is Discovery Research" Type="Boolean" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{8a4bfded-fbf6-4f25-b071-9a5a85cb2a52}" Name="RCisImplementationResearch" DisplayName="Research Core is Implementation Research" Type="Boolean" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{6aa3715a-331a-47c4-bf0c-cbd20408dd26}" Name="RCPrimaryInvestigator" DisplayName="Research Core Primary TGI investigator" Type="User" UserSelectionMode="PeopleOnly" ShowField="Name" Presence="TRUE" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{47b37248-abae-4913-a062-1bb7fece3f21}" Name="RCOriginationOffice" Description="In which TGI office primary investigator is based" DisplayName="Research Core Origination Office of Primary Investigator" Type="TaxonomyFieldType" Required="FALSE" ShowField="Term1033" EnforceUniqueValues="FALSE" DisplaceOnUpgrade="TRUE" Group="TGI Site Columns" Overwrite="TRUE">
+        <Customization>
+          <ArrayOfProperty>
+            <Property>
+              <Name>SspId</Name>
+              <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ad30dfe9-aa17-4d1a-9aef-23ab4bbedbf5</Value>
+            </Property>
+            <Property>
+              <Name>GroupId</Name>
+            </Property>
+            <Property>
+              <Name>TermSetId</Name>
+              <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">5d6e29e4-9db0-43ad-bdda-83d74f62d0ec</Value>
+            </Property>
+            <Property>
+              <Name>TextField</Name>
+              <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{4B4EA733-1DB8-4EFB-8B46-B2D0AF19CC89}</Value>
+            </Property>
+          </ArrayOfProperty>
+        </Customization>
+      </Field>
+      <Field ID="{7d888b3b-0a21-435c-8e53-773790f1f8fc}" Name="RCDepartments" DisplayName="Research Core If Australia then which department" Type="Lookup" Required="FALSE" ShowField="Title" List="Lists/Departments" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{1ed6812d-d937-4223-9f57-92b4b08552c7}" Name="RCisCrossRegionalResearch" DisplayName="Research Core is Cross Regional Research" Type="Boolean" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field ID="{09719706-4cc1-4c84-906c-f9c8e54597fd}" Name="RCTGIOfficesInvolved" DisplayName="Research Core TGI Offices which are involved" Type="TaxonomyFieldTypeMulti" Required="FALSE" ShowField="Term1033" EnforceUniqueValues="FALSE" DisplaceOnUpgrade="TRUE" Mult="TRUE" Group="TGI Site Columns" Overwrite="TRUE">
+        <Customization>
+          <ArrayOfProperty>
+            <Property>
+              <Name>SspId</Name>
+              <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ad30dfe9-aa17-4d1a-9aef-23ab4bbedbf5</Value>
+            </Property>
+            <Property>
+              <Name>GroupId</Name>
+            </Property>
+            <Property>
+              <Name>TermSetId</Name>
+              <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">5d6e29e4-9db0-43ad-bdda-83d74f62d0ec</Value>
+            </Property>
+            <Property>
+              <Name>TextField</Name>
+              <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{4991812E-A01F-4DD0-ADD3-3C583335C92B}</Value>
+            </Property>
+          </ArrayOfProperty>
+        </Customization>
+      </Field>
+      <Field ID="{88561474-5628-474c-9d63-96cac8959b30}" Name="RCProjectManager" DisplayName="Research Core Project Manager" Type="User" UserSelectionMode="PeopleOnly" ShowField="Name" Presence="TRUE" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field>
+      <Field Type="Note" DisplayName="RCOriginationOffice_0" Name="RCOriginationOfficeTaxHTField0" ID="{4B4EA733-1DB8-4EFB-8B46-B2D0AF19CC89}" ShowInViewForms="FALSE" Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" Group="TGI Site Columns" RowOrdinal="0"></Field>
+      <Field Type="Note" DisplayName="RCTGIOfficesInvolved_0" Name="RCTGIOfficesInvolvedTaxHTField0" ID="{4991812E-A01F-4DD0-ADD3-3C583335C92B}" ShowInViewForms="FALSE" Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" Group="TGI Site Columns" RowOrdinal="0"></Field>
+    </Fields>
+    <Views>
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitleNoMenu"></FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="FALSE"></FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitle"></FieldRef>
+          <FieldRef Name="RCAcronym" />
+          <FieldRef Name="RCAim" />
+          <FieldRef Name="RCMethodology" />
+          <FieldRef Name="RCMediaSummary" />
+          <FieldRef Name="RCTherapeuticArea" />
+          <FieldRef Name="RCStatus" />
+          <FieldRef Name="RCFundingStatus" />
+          <FieldRef Name="RCisClinicalTrial" />
+          <FieldRef Name="RCisDiscoveryResearch" />
+          <FieldRef Name="RCisImplementationResearch" />
+          <FieldRef Name="RCPrimaryInvestigator" />
+          <FieldRef Name="RCOriginationOffice" />
+          <FieldRef Name="RCDepartments" />
+          <FieldRef Name="RCisCrossRegionalResearch" />
+          <FieldRef Name="RCTGIOfficesInvolved" />
+          <FieldRef Name="RCProjectManager" />
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="ID"></FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

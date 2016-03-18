@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x010007E3198B8F72498BBA0C40A85008D591" Name="TimeSheet CTP" Group="TGI Content Types" Overwrite="TRUE" Description="This list keeps base information for TimeSheet." Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{40c5d716-2fa6-42fd-a957-71010400534a}" DisplayName="TimeSheet Number" Required="FALSE" Name="TSNumber" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+      <FieldRef ID="{28c5e1d4-1a80-47a5-9b2b-2b5fec923ad5}" DisplayName="TimeSheet Status" Required="FALSE" Name="TSStatus" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+      <FieldRef ID="{03c95565-f3e0-4340-9409-3b7042ad46fe}" DisplayName="TimeSheet CostCode" Required="FALSE" Name="TSCostCode" />
+      <FieldRef ID="{4bed4e36-30ba-488e-8189-749afef24fde}" DisplayName="TimeSheet Pay Period From To" Required="FALSE" Name="TSPayPeriodFromTo" />
+      <FieldRef ID="{69f51a70-a9c6-4fb8-a6c2-329f1dda9af6}" DisplayName="TimeSheet Total Minute" Required="FALSE" Name="TSTotalMinute" />
+      <FieldRef ID="{789feca4-7049-4963-a58b-0898cd585b96}" DisplayName="TimeSheet Visible" Required="FALSE" Name="TSVisible" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+      <FieldRef ID="{b75f56f0-09a4-48e2-9013-f7932f48f1bb}" DisplayName="TimeSheet Requester Comment" Required="FALSE" Name="TSRequesterComment" />
+      <FieldRef ID="{4e8e296f-e526-4cf6-9475-0daf1cdbcb01}" DisplayName="TimeSheet Approver Comment" Required="FALSE" Name="TSApproverComment" />
+
+    </FieldRefs>
+  </ContentType>
+</Elements>

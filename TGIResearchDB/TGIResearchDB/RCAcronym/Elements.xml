@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{17c6472b-4939-43e8-b220-b30af258f288}"
+       Name="RCAcronym"
+       DisplayName="Research Core Acronym"
+       Type="Text"
+       Overwrite="TRUE"
+       Required="FALSE" 
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

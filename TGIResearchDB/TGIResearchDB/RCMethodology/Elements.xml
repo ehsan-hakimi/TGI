@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{3a6db9af-745a-473a-813c-8190e67f292e}"
+       Name="RCMethodology"
+       DisplayName="Research Core Methodology"
+       Type="Note"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

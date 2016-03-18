@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86FCAD7B-B1E0-4049-AFE2-3E94E63C25B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TGIResearchDB</RootNamespace>
+    <AssemblyName>TGIResearchDB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Departments\DepartmentsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2ada7c3b-1633-4f65-af59-48de7665c903}</SharePointProjectItemId>
+    </None>
+    <None Include="Departments\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4769de65-cd4e-435a-bd6e-b69f22362d10}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Column-CT-List\Column-CT-List.feature">
+      <FeatureId>{188ce3e0-054b-4a37-9038-c4c274d1cc76}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{0c7d8749-a8e8-440d-9e80-a896e6a9245b}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="RCAcronym\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96675494-900b-4085-9c1a-3fcf5c4572aa}</SharePointProjectItemId>
+    </None>
+    <None Include="RCAim\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a4742954-a66d-484e-b0a3-3d1af7156973}</SharePointProjectItemId>
+    </None>
+    <None Include="RCDepartments\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{33750628-8925-4f90-8873-1e81a123d36f}</SharePointProjectItemId>
+    </None>
+    <None Include="RCFundingStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8844782d-b9e5-4ec5-952b-e478fe6bbe69}</SharePointProjectItemId>
+    </None>
+    <None Include="RCisActive\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{088ca39f-cc48-4de6-941b-3a2c7cef0530}</SharePointProjectItemId>
+    </None>
+    <None Include="RCisClinicalTrial\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{98eeb929-43d2-4f6d-a7dd-386f7c13cb83}</SharePointProjectItemId>
+    </None>
+    <None Include="RCisCrossRegionalResearch\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2d4ca194-2e21-4b4e-8386-93c68d9e6b2c}</SharePointProjectItemId>
+    </None>
+    <None Include="RCisDiscoveryResearch\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{198b600b-4df4-4391-93f2-6404a1dc40b5}</SharePointProjectItemId>
+    </None>
+    <None Include="RCisImplementationResearch\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f086fea8-123a-4d89-bbcb-27fa0cdd4616}</SharePointProjectItemId>
+    </None>
+    <None Include="RCMediaSummary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4893269e-04de-4117-946f-38e7c2ff9351}</SharePointProjectItemId>
+    </None>
+    <None Include="RCMethodology\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6552911f-3126-4c8b-a64f-f24f55f8b94d}</SharePointProjectItemId>
+    </None>
+    <None Include="RCOriginationOffice\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8b6dcc40-0c41-4b7a-baa7-d0726b59135a}</SharePointProjectItemId>
+    </None>
+    <None Include="RCPrimaryInvestigator\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c20e2cd1-0ec1-453a-b34e-f6b0ed136a7c}</SharePointProjectItemId>
+    </None>
+    <None Include="RCTGIOfficesInvolved\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{010915cb-a198-4e35-aaa4-0ebeea48f0df}</SharePointProjectItemId>
+    </None>
+    <None Include="RCProjectManager\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f3bc1fc6-07c0-4c2d-b1db-d140115f8b6e}</SharePointProjectItemId>
+    </None>
+    <None Include="RCStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4addcbd9-16cb-4149-8d6d-8b172ff54b53}</SharePointProjectItemId>
+    </None>
+    <None Include="RCTherapeuticArea\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{826e9e6d-85b9-4e6b-a165-212bb90c9ef1}</SharePointProjectItemId>
+    </None>
+    <None Include="ResearchCoreList\ResearchCoreListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d4da8ea0-a777-457e-b125-2d517f856718}</SharePointProjectItemId>
+    </None>
+    <None Include="ResearchCoreList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{819dd40f-d40b-4e9e-ac00-ff9b60835a84}</SharePointProjectItemId>
+    </None>
+    <None Include="ResearchCoreCTP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8f212d67-53a3-4666-911c-ad9f39581979}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Departments\DepartmentsInstance\Elements.xml" />
+    <Content Include="Departments\Elements.xml" />
+    <Content Include="Departments\Schema.xml" />
+    <Content Include="Features\Column-CT-List\Column-CT-List.Template.xml">
+      <DependentUpon>Column-CT-List.feature</DependentUpon>
+    </Content>
+    <Content Include="RCAcronym\Elements.xml" />
+    <Content Include="RCAim\Elements.xml" />
+    <Content Include="RCDepartments\Elements.xml" />
+    <Content Include="RCFundingStatus\Elements.xml" />
+    <Content Include="RCisActive\Elements.xml" />
+    <Content Include="RCisClinicalTrial\Elements.xml" />
+    <Content Include="RCisCrossRegionalResearch\Elements.xml" />
+    <Content Include="RCisDiscoveryResearch\Elements.xml" />
+    <Content Include="RCisImplementationResearch\Elements.xml" />
+    <Content Include="RCMediaSummary\Elements.xml" />
+    <Content Include="RCMethodology\Elements.xml" />
+    <Content Include="RCOriginationOffice\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RCPrimaryInvestigator\Elements.xml" />
+    <Content Include="RCTGIOfficesInvolved\Elements.xml" />
+    <Content Include="RCProjectManager\Elements.xml" />
+    <Content Include="RCStatus\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RCTherapeuticArea\Elements.xml" />
+    <Content Include="ResearchCoreList\Elements.xml" />
+    <Content Include="ResearchCoreList\ResearchCoreListInstance\Elements.xml" />
+    <Content Include="ResearchCoreList\Schema.xml" />
+    <Content Include="ResearchCoreCTP\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

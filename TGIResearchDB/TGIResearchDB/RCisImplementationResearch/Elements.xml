@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8a4bfded-fbf6-4f25-b071-9a5a85cb2a52}"
+       Name="RCisImplementationResearch"
+       DisplayName="Research Core is Implementation Research"
+       Type="Boolean"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{10de56d4-7373-43e3-a71e-4d7d57e9ddda}"
+       Name="RCMediaSummary"
+       DisplayName="Research Core Media Summary"
+       Type="Note"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

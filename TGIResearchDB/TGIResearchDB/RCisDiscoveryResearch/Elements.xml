@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{e105f209-f775-4b52-b05b-79cfa4a9f33a}"
+       Name="RCisDiscoveryResearch"
+       DisplayName="Research Core is Discovery Research"
+       Type="Boolean"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

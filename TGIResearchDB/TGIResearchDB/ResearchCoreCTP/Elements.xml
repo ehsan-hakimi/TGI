@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01009A284ED7B3E749158DA7ECB5F56BDC89" Name="ResearchCoreCTP" Overwrite="TRUE" Group="TGI Content Types" Description="Research Core List content type " Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{17c6472b-4939-43e8-b220-b30af258f288}" DisplayName="Research Core Acronym" Name="RCAcronym" Required="FALSE" />
+      <FieldRef ID="{a219018f-e948-4342-90d7-4b7895a53612}" DisplayName="Research Core Aim" Required="FALSE" Name="RCAim" />
+      <FieldRef ID="{3a6db9af-745a-473a-813c-8190e67f292e}" DisplayName="Research Core Methodology" Required="FALSE" Name="RCMethodology" />
+      <FieldRef ID="{10de56d4-7373-43e3-a71e-4d7d57e9ddda}" DisplayName="Research Core Media Summary" Required="FALSE" Name="RCMediaSummary" />
+      <FieldRef ID="{676835ee-1798-4fc3-a828-4aa1dd00513a}" DisplayName="Research Core Therapeutic Area" Required="FALSE" Name="RCTherapeuticArea" Format="RadioButtons" />
+      <FieldRef ID="{701d5186-2dcb-4b64-a13f-e579a50e42ff}" DisplayName="Research Core Status" Required="FALSE" Name="RCStatus" Format="Dropdown" />
+      <FieldRef ID="{89250441-1829-459f-89f1-b11a5bbf7f44}" DisplayName="Research Core Funding Status" Required="FALSE" Name="RCFundingStatus" Format="RadioButtons" />
+      <FieldRef ID="{229437fc-5431-4d99-84a0-375f53e57c07}" DisplayName="Research Core is Clinical Trial" Required="FALSE" Name="RCisClinicalTrial" />
+      <FieldRef ID="{e105f209-f775-4b52-b05b-79cfa4a9f33a}" DisplayName="Research Core is Discovery Research" Required="FALSE" Name="RCisDiscoveryResearch" />
+      <FieldRef ID="{8a4bfded-fbf6-4f25-b071-9a5a85cb2a52}" DisplayName="Research Core is Implementation Research" Required="FALSE" Name="RCisImplementationResearch" />
+      <FieldRef ID="{6aa3715a-331a-47c4-bf0c-cbd20408dd26}" DisplayName="Research Core Primary TGI investigator" Required="FALSE" Name="RCPrimaryInvestigator" />
+      <FieldRef ID="{47b37248-abae-4913-a062-1bb7fece3f21}" DisplayName="Research Core Origination Office of Primary Investigator" Required="FALSE" Description="In which TGI office primary investigator is based" Name="RCOriginationOffice" />
+      <FieldRef ID="{4B4EA733-1DB8-4EFB-8B46-B2D0AF19CC89}" DisplayName="RCOriginationOffice_0" Required="FALSE" Hidden="TRUE" Name="RCOriginationOfficeTaxHTField0" />
+      <FieldRef ID="{7d888b3b-0a21-435c-8e53-773790f1f8fc}" DisplayName="Research Core If Australia then which department" Required="FALSE" Name="RCDepartments" />
+      <FieldRef ID="{1ed6812d-d937-4223-9f57-92b4b08552c7}" DisplayName="Research Core is Cross Regional Research" Required="FALSE" Name="RCisCrossRegionalResearch" />
+      <FieldRef ID="{09719706-4cc1-4c84-906c-f9c8e54597fd}" DisplayName="Research Core TGI Offices which are involved" Required="FALSE" Name="RCTGIOfficesInvolved" />
+      <FieldRef ID="{4991812E-A01F-4DD0-ADD3-3C583335C92B}" DisplayName="RCTGIOfficesInvolved_0" Required="FALSE" Hidden="TRUE" Name="RCTGIOfficesInvolvedTaxHTField0" />
+      <FieldRef ID="{88561474-5628-474c-9d63-96cac8959b30}" DisplayName="Research Core Project Manager" Required="FALSE" Name="RCProjectManager" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

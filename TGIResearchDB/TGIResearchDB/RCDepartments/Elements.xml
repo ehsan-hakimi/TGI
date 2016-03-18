@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{7d888b3b-0a21-435c-8e53-773790f1f8fc}"
+       Name="RCDepartments"
+       DisplayName="Research Core If Australia then which department"
+       Type="Lookup"
+       Required="FALSE"
+       ShowField="Title"
+       List="Lists/Departments"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

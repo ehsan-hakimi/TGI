@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{6aa3715a-331a-47c4-bf0c-cbd20408dd26}"
+       Name="RCPrimaryInvestigator"
+       DisplayName="Research Core Primary TGI investigator"
+       Type="User"
+       UserSelectionMode="PeopleOnly"
+       ShowField="Name"
+       Presence="TRUE"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

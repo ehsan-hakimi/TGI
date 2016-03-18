@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{28c5e1d4-1a80-47a5-9b2b-2b5fec923ad5}"
+       Name="TSStatus"
+       DisplayName="TimeSheet Status"
+       Type="Text"
+       ShowInDisplayForm="TRUE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+    <Default>New Form</Default>
+  </Field>
+</Elements>

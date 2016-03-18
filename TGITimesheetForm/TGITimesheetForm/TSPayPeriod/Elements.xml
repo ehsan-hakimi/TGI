@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{4bed4e36-30ba-488e-8189-749afef24fde}"
+       Name="TSPayPeriodFromTo"
+       DisplayName="TimeSheet Pay Period From To"
+       Type="Lookup"
+       List="Lists/PayPeriod"
+       ShowField="FromToDate"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

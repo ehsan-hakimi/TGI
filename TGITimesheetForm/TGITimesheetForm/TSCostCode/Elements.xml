@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+     ID="{03c95565-f3e0-4340-9409-3b7042ad46fe}"
+     Name="TSCostCode"
+     DisplayName="TimeSheet CostCode"
+     Type="Lookup"
+     Required="FALSE"
+     ShowField="Description"
+     List="Lists/CostCode"
+     Overwrite="TRUE"
+     Group="TGI Site Columns">
+  </Field>
+
+</Elements>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1ed6812d-d937-4223-9f57-92b4b08552c7}"
+       Name="RCisCrossRegionalResearch"
+       DisplayName="Research Core is Cross Regional Research"
+       Type="Boolean"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

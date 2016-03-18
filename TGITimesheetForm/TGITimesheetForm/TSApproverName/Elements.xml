@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{26655ab6-9ce3-42ef-922f-745037a5a266}"
+       Name="TSApproverName"
+       DisplayName="TimeSheet Approver Name"
+       Type="User"
+       UserSelectionMode="PeopleOnly"
+       ShowField="Name"
+       Presence="TRUE"
+       Required="FALSE"
+       Group="TGI Site Columns">
+  </Field>
+  <Field
+     ID="{4e8e296f-e526-4cf6-9475-0daf1cdbcb01}"
+     Name="TSApproverComment"
+     DisplayName="TimeSheet Approver Comment"
+     Type="Note"
+     Required="FALSE"
+     Group="TGI Site Columns">
+  </Field>
+</Elements>

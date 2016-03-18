@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0c7d8749-a8e8-440d-9e80-a896e6a9245b" solutionId="0c7d8749-a8e8-440d-9e80-a896e6a9245b" resetWebServer="false" sharePointProductVersion="15.0" name="TGI Research Core DB" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="188ce3e0-054b-4a37-9038-c4c274d1cc76" />
+  </features>
+</package>

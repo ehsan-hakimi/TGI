@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEE04612-4D27-4333-8F3F-1653655C8DA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TGITimesheetForm</RootNamespace>
+    <AssemblyName>TGITimesheetForm</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\Columns-CT-BaseForm\Columns-CT-BaseForm.feature">
+      <FeatureId>{6e9e1755-b7bf-4819-8add-8c012d5570e9}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{4ec23104-f0b1-4f26-a4d7-7a658126be7b}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="TimeSheetCTP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b40f7858-6a89-415b-b376-f3623b93f180}</SharePointProjectItemId>
+    </None>
+    <None Include="TimeSheetList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4a80f32a-b433-43e0-a370-9289ab8ed68f}</SharePointProjectItemId>
+    </None>
+    <None Include="TimeSheetList\TimeSheetListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9bf84326-b1b2-4074-8784-41caaa21b60c}</SharePointProjectItemId>
+    </None>
+    <None Include="TSApproverName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6912f758-664c-4f2a-ba70-89d497d5ee70}</SharePointProjectItemId>
+    </None>
+    <None Include="TSCostCode\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9f4672b5-ad99-4a36-929d-308938d7f4e1}</SharePointProjectItemId>
+    </None>
+    <None Include="TSNumber\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c0397554-857b-42a7-853e-aba7faca65f2}</SharePointProjectItemId>
+    </None>
+    <None Include="TSPayPeriod\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{05a7b520-9db8-4084-ba3f-bb782b76bf2c}</SharePointProjectItemId>
+    </None>
+    <None Include="TSRequesterComment\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f158d0dc-ffb6-45a3-be92-eb02802277e6}</SharePointProjectItemId>
+    </None>
+    <None Include="TSRequester\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{665d0d9b-666e-499e-8aeb-94aeef3a9723}</SharePointProjectItemId>
+    </None>
+    <None Include="TSStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e46b1296-8bbb-4b9b-9b28-b44f266fbf71}</SharePointProjectItemId>
+    </None>
+    <None Include="TSTotalMinute\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8a41387f-8c68-454f-976e-77a0a20224ab}</SharePointProjectItemId>
+    </None>
+    <None Include="TSVisible\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{81ef6199-688c-41ae-b6cc-39e660803cea}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\Columns-CT-BaseForm\Columns-CT-BaseForm.Template.xml">
+      <DependentUpon>Columns-CT-BaseForm.feature</DependentUpon>
+    </Content>
+    <Content Include="TimeSheetCTP\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TimeSheetList\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TimeSheetList\Schema.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TimeSheetList\TimeSheetListInstance\Elements.xml" />
+    <Content Include="TSApproverName\Elements.xml" />
+    <Content Include="TSCostCode\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TSNumber\Elements.xml" />
+    <Content Include="TSPayPeriod\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TSRequesterComment\Elements.xml" />
+    <Content Include="TSRequester\Elements.xml" />
+    <Content Include="TSStatus\Elements.xml" />
+    <Content Include="TSTotalMinute\Elements.xml" />
+    <Content Include="TSVisible\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

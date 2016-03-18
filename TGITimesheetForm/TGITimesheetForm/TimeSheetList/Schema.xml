@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="TimeSheetList" Overwrite="TRUE" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/TimeSheetList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x010007E3198B8F72498BBA0C40A85008D591" Name="TimeSheet CTP" Group="TGI Content Types" Description="This list keeps base information for TimeSheet." Inherits="TRUE" Version="0"><FieldRefs><FieldRef ID="{40c5d716-2fa6-42fd-a957-71010400534a}" DisplayName="TimeSheet Number" Required="FALSE" Name="TSNumber" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" /><FieldRef ID="{28c5e1d4-1a80-47a5-9b2b-2b5fec923ad5}" DisplayName="TimeSheet Status" Required="FALSE" Name="TSStatus" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" /><FieldRef ID="{03c95565-f3e0-4340-9409-3b7042ad46fe}" DisplayName="TimeSheet CostCode" Required="FALSE" Name="TSCostCode" /><FieldRef ID="{4bed4e36-30ba-488e-8189-749afef24fde}" DisplayName="TimeSheet Pay Period From To" Required="FALSE" Name="TSPayPeriodFromTo" /><FieldRef ID="{69f51a70-a9c6-4fb8-a6c2-329f1dda9af6}" DisplayName="TimeSheet Total Minute" Required="FALSE" Name="TSTotalMinute" /><FieldRef ID="{789feca4-7049-4963-a58b-0898cd585b96}" DisplayName="TimeSheet Visible" Required="FALSE" Name="TSVisible" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" /><FieldRef ID="{b75f56f0-09a4-48e2-9013-f7932f48f1bb}" DisplayName="TimeSheet Requester Comment" Required="FALSE" Name="TSRequesterComment" /><FieldRef ID="{4e8e296f-e526-4cf6-9475-0daf1cdbcb01}" DisplayName="TimeSheet Approver Comment" Required="FALSE" Name="TSApproverComment" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+      
+      
+      
+    
+      
+      
+      
+      
+      <Field ID="{40c5d716-2fa6-42fd-a957-71010400534a}" Name="TSNumber" DisplayName="TimeSheet Number" Type="Text" Required="FALSE" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field><Field ID="{28c5e1d4-1a80-47a5-9b2b-2b5fec923ad5}" Name="TSStatus" DisplayName="TimeSheet Status" Type="Text" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"><Default>New Form</Default></Field><Field ID="{03c95565-f3e0-4340-9409-3b7042ad46fe}" Name="TSCostCode" DisplayName="TimeSheet CostCode" Type="Lookup" Required="FALSE" ShowField="Description" List="Lists/CostCode" Overwrite="TRUE" Group="TGI Site Columns"></Field><Field ID="{4bed4e36-30ba-488e-8189-749afef24fde}" Name="TSPayPeriodFromTo" DisplayName="TimeSheet Pay Period From To" Type="Lookup" List="Lists/PayPeriod" ShowField="FromToDate" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field><Field ID="{69f51a70-a9c6-4fb8-a6c2-329f1dda9af6}" Name="TSTotalMinute" DisplayName="TimeSheet Total Minute" Type="Number" Required="FALSE" Decimals="0" Commas="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field><Field ID="{789feca4-7049-4963-a58b-0898cd585b96}" Name="TSVisible" DisplayName="TimeSheet Visible" Type="Boolean" Required="FALSE" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" Overwrite="TRUE" Group="TGI Site Columns"><Default>1</Default></Field><Field ID="{b75f56f0-09a4-48e2-9013-f7932f48f1bb}" Name="TSRequesterComment" DisplayName="TimeSheet Requester Comment" Type="Note" Required="FALSE" Overwrite="TRUE" Group="TGI Site Columns"></Field><Field ID="{4e8e296f-e526-4cf6-9475-0daf1cdbcb01}" Name="TSApproverComment" DisplayName="TimeSheet Approver Comment" Type="Note" Required="FALSE" Group="TGI Site Columns"></Field></Fields>
+    <Views>
+      
+      
+    
+   
+   
+   <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx" Hidden="TRUE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="TSNumber" /><FieldRef Name="TSStatus" /><FieldRef Name="TSCostCode" /><FieldRef Name="TSPayPeriodFromTo" /><FieldRef Name="TSTotalMinute" /><FieldRef Name="TSVisible" /><FieldRef Name="TSRequesterComment" /><FieldRef Name="TSApproverComment" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View><View BaseViewID="2" Name="93b2f16d-801e-448a-ab67-5d23e897db4e" DisplayName="My" Type="HTML" WebPartZoneID="Main" SetupPath="pages\viewpage.aspx" Url="My.aspx" MobileItemLimit="5" MobileView="TRUE" ReadOnly="TRUE">
+        <RowLimit>10</RowLimit>
+        <ViewFields />
+        <Query>
+          <Where><Eq><FieldRef Name="Author" /><Value Type="Integer"><UserID Type="Integer" /></Value></Eq></Where>
+          <OrderBy><FieldRef Name="ID" Ascending="TRUE" /></OrderBy>
+        </Query>
+        <Toolbar Type="Standard" /><XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form JSLink="~site/SiteAssets/FilteredLookupColumnByRest.js" Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

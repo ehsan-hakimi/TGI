@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{701d5186-2dcb-4b64-a13f-e579a50e42ff}"
+       Name="RCStatus"
+       DisplayName="Research Core Status"
+       Type="Choice"
+       Format="Dropdown"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+    <Default>Active</Default>
+        <CHOICES>
+          <CHOICE>Active</CHOICE>
+          <CHOICE>Completed</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

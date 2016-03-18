@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{789feca4-7049-4963-a58b-0898cd585b96}"
+       Name="TSVisible"
+       DisplayName="TimeSheet Visible"
+       Type="Boolean"
+       Required="FALSE"
+       ShowInDisplayForm="TRUE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+    <Default>1</Default>
+  </Field>
+</Elements>

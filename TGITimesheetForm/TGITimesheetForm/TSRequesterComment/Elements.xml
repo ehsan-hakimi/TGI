@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{b75f56f0-09a4-48e2-9013-f7932f48f1bb}"
+       Name="TSRequesterComment"
+       DisplayName="TimeSheet Requester Comment"
+       Type="Note"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

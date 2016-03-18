@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{651a59ee-baa3-4792-b9b9-b2d1252073cc}"
+       Name="TSRequester"
+       DisplayName="TimeSheet Requester"
+       Type="User"
+       UserSelectionMode="PeopleOnly"
+       ShowField="Name"
+       ShowInDisplayForm="TRUE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"       
+       Presence="TRUE"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{229437fc-5431-4d99-84a0-375f53e57c07}"
+       Name="RCisClinicalTrial"
+       DisplayName="Research Core is Clinical Trial"
+       Type="Boolean"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

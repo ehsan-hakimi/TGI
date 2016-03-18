@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{235d8cd2-b824-4d77-98a5-e770451b16c8}"
+       Name="RCisActive"
+       DisplayName="Research Core isActive"
+       Type="Boolean"
+       Required="FALSE"
+       Overwrite="TRUE"
+       ShowInDisplayForm="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"
+       ShowInViewForms="FALSE"
+       Group="TGI Site Columns">
+    <Default>1</Default>
+  </Field>
+</Elements>

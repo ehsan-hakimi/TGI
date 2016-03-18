@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{676835ee-1798-4fc3-a828-4aa1dd00513a}"
+       Name="RCTherapeuticArea"
+       DisplayName="Research Core Therapeutic Area"
+       Type="MultiChoice"
+       Format="RadioButtons"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+        <CHOICES>
+          <CHOICE>Dermatology</CHOICE>
+          <CHOICE>Endocrinology</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

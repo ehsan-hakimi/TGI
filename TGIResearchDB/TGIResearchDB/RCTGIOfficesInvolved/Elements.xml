@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{09719706-4cc1-4c84-906c-f9c8e54597fd}"
+       Name="RCTGIOfficesInvolved"
+       DisplayName="Research Core TGI Offices which are involved"
+         Type="TaxonomyFieldTypeMulti" 
+         Required="FALSE" 
+         ShowField="Term1033" 
+         EnforceUniqueValues="FALSE" 
+         DisplaceOnUpgrade="TRUE" 
+         Mult="TRUE" 
+         Group="TGI Site Columns" 
+         Overwrite="TRUE">
+   <Customization>
+     <ArrayOfProperty>
+      <Property>
+          <Name>SspId</Name>
+          <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ad30dfe9-aa17-4d1a-9aef-23ab4bbedbf5</Value>
+        </Property>
+      <Property>
+          <Name>GroupId</Name>
+        </Property>
+        <Property>
+          <Name>TermSetId</Name>
+          <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">5d6e29e4-9db0-43ad-bdda-83d74f62d0ec</Value>
+        </Property>
+       <Property>
+          <Name>TextField</Name>
+          <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{4991812E-A01F-4DD0-ADD3-3C583335C92B}</Value>
+        </Property>
+
+     </ArrayOfProperty>
+    </Customization>
+  </Field>
+  <Field Type="Note"
+         DisplayName="RCTGIOfficesInvolved_0"
+         Name="RCTGIOfficesInvolvedTaxHTField0"
+         ID="{4991812E-A01F-4DD0-ADD3-3C583335C92B}"
+         ShowInViewForms="FALSE"
+         Required="FALSE"
+         Hidden="TRUE"
+         CanToggleHidden="TRUE"
+         Group="TGI Site Columns"
+         RowOrdinal="0" 
+         Overwrite="TRUE"/>
+</Elements>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{88561474-5628-474c-9d63-96cac8959b30}"
+       Name="RCProjectManager"
+       DisplayName="Research Core Project Manager"
+       Type="User"
+       UserSelectionMode="PeopleOnly"
+       ShowField="Name"
+       Presence="TRUE"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

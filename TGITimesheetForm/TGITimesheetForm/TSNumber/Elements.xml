@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{40c5d716-2fa6-42fd-a957-71010400534a}"
+       Name="TSNumber"
+       DisplayName="TimeSheet Number"
+       Type="Text"
+       Required="FALSE"
+       ShowInDisplayForm="TRUE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

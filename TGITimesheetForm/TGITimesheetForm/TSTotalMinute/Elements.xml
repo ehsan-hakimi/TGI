@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{69f51a70-a9c6-4fb8-a6c2-329f1dda9af6}"
+       Name="TSTotalMinute"
+       DisplayName="TimeSheet Total Minute"
+       Type="Number"
+       Required="FALSE"
+       Decimals="0"
+       Commas="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+  </Field>
+</Elements>

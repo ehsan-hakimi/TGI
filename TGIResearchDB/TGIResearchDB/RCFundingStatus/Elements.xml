@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{89250441-1829-459f-89f1-b11a5bbf7f44}"
+       Name="RCFundingStatus"
+       DisplayName="Research Core Funding Status"
+       Type="Choice"
+       Format="RadioButtons"
+       Required="FALSE"
+       Overwrite="TRUE"
+       Group="TGI Site Columns">
+    <Default>Funded</Default>
+    <CHOICES>
+      <CHOICE>Funded</CHOICE>
+      <CHOICE>Unfunded</CHOICE>
+    </CHOICES>    
+  </Field>
+</Elements>
