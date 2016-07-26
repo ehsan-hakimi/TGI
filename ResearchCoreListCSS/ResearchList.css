@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+/*when select a row change BG-Color to semi-dark violet and font color to white (same as hover action) 
+it repeat at the end. Removing this one will result problem for alternative row color */
+.s4-itm-selected > *, .s4-itm-selected:hover > *{
+	background-color:#905fa1 !important; 
+	color:white !important;
+}
+
+/*odd rows BG-Color change to light purple*/
+.ms-alternating{  background-color:#f4e8ee;}
+
+/*when Hover over a row change BG-Color to light purple and font color to white*/
+.ms-itmHoverEnabled:hover > *{
+	background-color:#b08dbc !important; 
+	color:white !important;
+	border:1px solid white;
+	border-bottom-color:#611b7a;
+	border-top-color:#611b7a;
+}
+
+/*when Hover over a row change border to make it consistant with other Hovered rows */
+.ms-itmHoverEnabled:hover .ms-vb-imgFirstCell.ms-vb-imgFirstCell.ms-vb-imgFirstCell{
+	border:1px solid white;
+	border-bottom-color:#611b7a;
+	border-top-color:#611b7a;	
+}
+
+/*header row change BG-Color to violet*/
+.ms-vhltr{background-color:#611b7a}
+
+/*change BG-Color sort icon in header row once it hover to light purple*/
+.ms-headerCellStyleHover .s4-ctx{background-color:#f4e8ee;}
+
+/*change font color on hover or selected rows to white for all field types
+ including Title firld, peoplepicker, lookup column and other link types*/
+.s4-itm-selected:hover .ms-vb2 a.ms-listlink,.s4-itm-selected:hover .ms-vb2 a.ms-listlink:visited,
+.s4-itm-selected .ms-vb2 a.ms-listlink,.s4-itm-selected .ms-vb2 a.ms-listlink:visited,
+.ms-itmHoverEnabled:hover .ms-subtleLink, .s4-itm-selected .ms-subtleLink,
+.ms-itmHoverEnabled:hover .ms-vb2 a.ms-listlink, .ms-itmHoverEnabled:hover .ms-vb2 a.ms-listlink:visited,
+.ms-itmHoverEnabled:hover .ms-vb a.ms-listlink, .ms-itmHoverEnabled:hover .ms-vb2 a.ms-listlink, .ms-itmHoverEnabled:hover .ms-vb-user a.ms-listlink, .ms-itmHoverEnabled:hover .ms-vb a.ms-listlink:visited, .ms-itmHoverEnabled:hover .ms-vb a.ms-listlink:hover:visited,
+.s4-itm-selected .ms-vb a.ms-listlink, .s4-itm-selected .ms-vb2 a.ms-listlink, .s4-itm-selected .ms-vb-user a.ms-listlink, .s4-itm-selected .ms-vb a.ms-listlink:visited, .s4-itm-selected .ms-vb a.ms-listlink:hover:visited,
+.s4-itm-selected .ms-vb a:visited, .s4-itm-selected .ms-vb2 a:visited, .s4-itm-selected .ms-vb-user a:visited,
+.s4-itm-selected .ms-link:visited, .s4-itm-selected:hover .ms-link:visited, .ms-itmHoverEnabled:hover .ms-link:visited,
+.ms-vb2 a.ms-listlink:hover, .ms-vb2 a.ms-listlink:hover:visited{color:white !important;}
+
+/*change font color to white on header row for all type of field including links and after sort operations*/
+.ms-vh, .ms-vh2, .ms-vh-icon, .ms-vh-icon-empty, .ms-vh2-nofilter, .ms-vh2-nofilter-notextalign, 
+.ms-vh2-nofilter-perm, .ms-vhImage, .ms-vh2-nograd, .ms-vh3-nograd, .ms-vh2-nograd-icon, .ms-vh2-nofilter-icon, .ms-ph,
+.ms-vh2-nofilter, .ms-vh2-nofilter-notextalign, .ms-vh2-nofilter-perm, .ms-vh a, .ms-vh2, .ms-vh2 a{color:white;}
+
+/*change color of border to violet and add border-radious to table*/
+table.ms-listviewtable{border:1px solid #611b7a; border-radius:5px}
+
+/*remove last extra column from table*/
+.ms-vhltr th:last-child{display:none;}
+
+/*change border space color after selection of a row in the first column from table since its color is blue*/
+.s4-itm-selected .ms-vb-imgFirstCell.ms-vb-imgFirstCell.ms-vb-imgFirstCell,
+.ms-itmHoverEnabled:hover .ms-vb-imgFirstCell.ms-vb-imgFirstCell.ms-vb-imgFirstCell{border-right-color:#905fa1}
+
+/*when select a row change BG-Color to semi-dark violet and font color to white (same as hover action) 
+it repeated at the first of stylesheet. Removing this one will result selected row chnage back to blue*/
+.s4-itm-selected > *, .s4-itm-selected:hover > *{
+	background-color:#905fa1 !important; 
+	color:white !important;
+}
+/*.ms-core-menu-list .ms-core-menu-link,*/
+.ms-core-menu-label .ms-core-menu-title{color:#444}
+.s4-itm-selected .ms-vb2 a, .ms-itmHoverEnabled:hover .ms-vb2 a{color:white !important;}
+</style>
+

@@ -1,0 +1,43 @@
+﻿Register-SPWorkflowService –SPSite "http://c4968397007" –WorkflowHostUri "http://c4968397007:12291" –AllowOAuthHttp
+
+C4968397007.DC07.Loc
+
+Zk40684SuT
+'Activate Features': System.NullReferenceException: Object reference not set to an instance of an object.    at Microsoft.SharePoint.WorkflowServices.WorkflowSubscriptionStorageEventReceiver.ItemAdded(SPItemEventProperties properties)
+Register-SPWorkflowService –SPSite "http://localhost/yourSite" –WorkflowHostUri "https://localhost:12290" –AllowOAuthHttp
+http://prabathf.blogspot.com/2013/02/installing-and-configuring-workflow-for.html
+
+System.Management.Automation.CmdletInvocationException: Starting service Service Bus Message Broker failed: Time out has expired and the operation has not been completed.
+https://sharepointdeal.wordpress.com/2013/04/12/sharepoint-2013-workflow-manager-1-0-install-and-configuration/
+https://social.msdn.microsoft.com/Forums/azure/en-US/5d6b801a-e015-4fa5-815e-42631254e3cb/unable-to-start-service-bus-during-initial-configuration?forum=servbus
+https://msdn.microsoft.com/library/azure/jj193529(v=azure.10).aspx
+https://social.msdn.microsoft.com/Forums/azure/ru-RU/688ada3c-bb95-488d-9ad0-aec297438e1c/problem-starting-message-broker-during-service-broker-configuration?forum=servbus
+https://lennytech.wordpress.com/2013/06/02/troubleshooting-configuration-problems-with-workflow-manager-and-service-bus/
+
+use managed metadata in Sharepoint app with VS
+http://www.wictorwilen.se/Post/How-to-provision-SharePoint-2010-Managed-Metadata-columns.aspx
+http://geeks.ms/blogs/lmanez/archive/2013/08/29/deploying-managed-metadata-fields-declaratively-in-sharepoint-2013-online-office-365.aspx
+http://www.sharepointnutsandbolts.com/2013/09/provisioning-managed-metadata-fields-in-Office-365.html
+https://tjendarta.wordpress.com/2013/07/19/create-managed-metadata-column-taxonomyfieldtype-in-visual-studio/
+http://www.sharepointpals.com/post/Sharepoint-2013-Programmatically-creating-Managed-Metadata-column-mapping-it-with-termset
+https://cann0nf0dder.wordpress.com/2013/04/01/creating-a-site-column-with-managed-metadata/
+https://georgeinstitute.sharepoint.com/sites/Dev/_layouts/15/mngfield.aspx
+
+Add ribbon button 
+http://www.a2zmenu.com/Tutorials/SharePoint/How-to-add-ribbon-button-in-SharePoint-list-and-library.aspx
+
+event reciver in SP App
+https://msdn.microsoft.com/en-us/library/office/jj220052.aspx
+https://msdn.microsoft.com/en-us/library/office/jj220043.aspx
+https://github.com/OfficeDev/PnP/tree/master/Samples/Core.EventReceivers
+
+custom actions to deploy host web with SharePoint Add-ins
+https://msdn.microsoft.com/en-us/library/office/jj163954.aspx
+https://blogs.msdn.microsoft.com/kaevans/2014/02/26/attaching-remote-event-receivers-to-lists-in-the-host-web/
+
+Provider-hosted app sample 
+https://msdn.microsoft.com/en-us/library/office/fp142381.aspx
+
+https://mohitvash.wordpress.com/2014/02/18/add-metadata-taxonomy-custom-field-using-visual-studio/
+**https://mohitvash.wordpress.com/2014/05/15/resolution-of-the-splistitem-being-updated-was-not-retrieved-with-all-taxonomy-fields/
+**http://www.sharepointnutsandbolts.com/2013/09/provisioning-managed-metadata-fields-in-Office-365.html

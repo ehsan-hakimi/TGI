@@ -1,0 +1,294 @@
+<style>
+/*Stylesheet for NewForm and EditForm SharePoint List default Form*/
+
+/*Label for created by and modified by at the buttom of the page */
+.ms-formtoolbar td{
+	color:#991D57;
+}
+/*all input type text and textarea customization*/
+.ms-core-tableNoSpace input[type="text"].ms-long,
+.ms-core-tableNoSpace input[type="email"],
+.ms-core-tableNoSpace input[type="tel"],
+.ms-core-tableNoSpace input[type="url"],
+.ms-core-tableNoSpace textarea {
+	width:80%;
+	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	border-radius:5px;
+}
+.ms-core-tableNoSpace input[type="text"].ms-long:hover,
+.ms-core-tableNoSpace textarea:hover,
+.ms-core-tableNoSpace input[type="text"].ms-long:focus ,
+.ms-core-tableNoSpace textarea:focus ,
+.ms-core-tableNoSpace input[type="text"].ms-long:focus:hover ,
+.ms-core-tableNoSpace textarea:focus:hover  {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #991d57;
+	background-color:lightgrey;
+}
+.ms-core-tableNoSpace textarea {
+	height:100px;
+	max-width:80%;
+}
+/*all input button customization*/
+.ms-core-tableNoSpace input[type="button"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#991D57;
+	background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+	background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+	background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+	color:#FFF;
+	margin:0 0 5px;
+	padding:6px;
+	border-radius:5px;
+	font-size:12px;
+	font-family:Arial Black;
+}
+.ms-core-tableNoSpace input[type="button"]:hover {
+	background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+	background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+	background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+.ms-core-tableNoSpace input[type="button"]:active {
+	box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+}
+/*not sure what exactly is doing*/
+::-webkit-input-placeholder {
+    color:#888;
+}
+:-moz-placeholder {
+    color:#888;
+}
+::-moz-placeholder {
+    color:#888;
+}
+:-ms-input-placeholder {
+    color:#888;
+}
+/*all input type select comboboxs customization*/
+.ms-core-tableNoSpace select {
+   background: transparent;
+   padding: 5px;
+   line-height: 1;
+   box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+   -webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+   -moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+   border:1px solid #CCC;
+   background-color:#f3c2d9;
+	margin:0 0 5px;
+	border-radius:5px;
+   }
+.ms-core-tableNoSpace select:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #991d57;
+	background-color:lightgrey;
+}
+/*all Managed Metadata field customization*/
+.ms-core-tableNoSpace .ms-taxonomy-writeableregion .ms-taxonomy-writeableregion,
+.ms-core-tableNoSpace .ms-inputBox{
+	border-radius:5px;
+	width:90%;	
+	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;	
+}
+.ms-core-tableNoSpace .ms-taxonomy-writeableregion .ms-taxonomy-writeableregion:hover,
+.ms-core-tableNoSpace .ms-inputBox:hover,
+.ms-core-tableNoSpace .ms-taxonomy-writeableregion .ms-taxonomy-writeableregion:focus,
+.ms-core-tableNoSpace .ms-inputBox:focus{
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #991d57;
+	background-color:lightgrey;	
+}
+
+/*all input type checkbox customization*/
+.ms-RadioText {
+  padding-left: 20px;
+}
+.ms-RadioText input[type="checkbox"]+label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+.ms-RadioText input[type="checkbox"]+label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.ms-RadioText input[type="checkbox"]+label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 2px;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: #555555;
+}
+.ms-RadioText input[type="checkbox"],
+.ms-RadioText input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+}
+.ms-RadioText input[type="checkbox"]:focus + label::before,
+.ms-RadioText input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.ms-RadioText input[type="checkbox"]:checked + label::after,
+.ms-RadioText input[type="radio"]:checked + label::after {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  font-size:12px;
+}
+.ms-RadioText input[type="checkbox"]:checked + label::before,
+.ms-RadioText input[type="radio"]:checked + label::before {
+  background-color: #991D57;
+  border-color: #991D57;
+}
+.ms-RadioText input[type="checkbox"]:checked + label::after,
+.ms-RadioText input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+/*all input type radio button customization*/
+.ms-RadioText {
+  padding-left: 20px;
+}
+.ms-RadioText input[type="radio"]+label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+.ms-RadioText input[type="radio"]+label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+}
+.ms-RadioText input[type="radio"]+label::after {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  width: 11px;
+  height: 11px;
+  left: 3px;
+  top: 3px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background-color: #555555;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+.ms-RadioText input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+}
+.ms-RadioText input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.ms-RadioText input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+
+.ms-RadioText input[type="radio"] + label::after {
+  background-color: #991D57;
+}
+.ms-RadioText input[type="radio"]:checked + label::before {
+  border-color: #991D57;
+}
+.ms-RadioText input[type="radio"]:checked + label::after {
+  background-color: #991D57;
+}
+
+/*For both Checkbox and Radio fields customization*/
+input[type="checkbox"].styled:checked + label:after,
+input[type="radio"].styled:checked + label:after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+  font-size:12px;
+}
+input[type="checkbox"] .styled:checked + label::before,
+input[type="radio"] .styled:checked + label::before {
+  color: #fff;
+}
+input[type="checkbox"] .styled:checked + label::after,
+input[type="radio"] .styled:checked + label::after {
+  color: #fff;
+}
+/*Change form background and size*/
+#DeltaPlaceHolderMain .ms-core-tableNoSpace{
+	background-color:#F9F9F9;
+	padding:0 10px 0 10px;
+}
+/*Change Label Fields colors and font*/
+.ms-core-tableNoSpace td.ms-formlabel .ms-standardheader {
+	cursor:pointer;
+	color:#991D57;
+	margin:5px 0;
+	font-weight:900;
+}
+/*Radius and size of PeoplePicker field */
+.ms-core-tableNoSpace .sp-peoplepicker-topLevel, .ms-core-tableNoSpace .sp-peoplepicker-topLevelDisabled{
+	border-radius:5px;
+	width:80%;
+}
+.ms-core-tableNoSpace .sp-peoplepicker-topLevel:hover, .ms-core-tableNoSpace .sp-peoplepicker-topLevelDisabled:hover{
+	border:1px solid #991d57;
+	background-color:lightgrey;
+}
+</style>

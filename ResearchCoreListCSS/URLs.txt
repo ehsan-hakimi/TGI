@@ -1,0 +1,91 @@
+﻿var variablename = $("select[title='TimeSheet CostCode']").val(); 
+variablename 
+
+function PreSaveAction() 
+ {$("select[title='TimeSheet Pay Period From To']").val(13);} 
+ PreSaveAction(
+
+JSLink="~site/SiteAssets/FilteredLookupColumnByRest.js"
+TSPayPeriodFromTo
+
+SPFieldLookup class
+https://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spfieldlookup.aspx
+http://sharepoint.stackexchange.com/questions/137584/lookup-column-in-sharepoint-list-column-in-visual-studio
+http://sharepoint.stackexchange.com/questions/59159/add-additional-field-to-lookup-field-inside-schema-xml
+
+user field type
+https://ajaznusrat.wordpress.com/2012/06/21/using-the-sharepoint-user-type-field-people-or-group-in-list-definition/
+
+SPFieldUser properties
+https://msdn.microsoft.com/EN-US/library/microsoft.sharepoint.spfielduser_properties.aspx
+
+SPFieldType enumeration
+https://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spfieldtype.aspx
+http://sharpointpractice.blogspot.com/2011/08/sharepoint-field-types-elementsxml.html
+https://www.microsoftpressstore.com/articles/article.aspx?p=2199427&seqNum=3
+
+SPField default value
+http://petersullivan.com.au/2009/04/26/defining-custom-columns-in-sharepoint-%E2%80%93-field-types-and-options/
+https://msdn.microsoft.com/EN-US/library/office/aa979575.aspx
+
+How to: Hide a Menu Item in the ECB from SharePoint List Items
+https://msdn.microsoft.com/en-us/library/cc768565(v=office.14).aspx
+
+
+http://c4968397007/Timesheet/_layouts/15/start.aspx#/Lists/TimeSheetList/AllItems.aspx
+https://georgeinstitute.sharepoint.com/teams/GI/Corporate/HR/TimesheetLib/Forms/ApprovedForms.aspx
+https://georgeinstitute.sharepoint.com/sites/Applications/Timesheet/_layouts/15/start.aspx#/SitePages/Home.aspx
+
+https://roykimsharepoint.wordpress.com/2013/05/24/visual-studio-2012-list-and-content-type-designer-hands-on-observations/
+
+Caml Query to return items created by logged in user
+http://sharepoint.stackexchange.com/questions/151666/caml-query-to-return-items-created-by-logged-in-user
+http://www.sharepointchick.com/archive/2009/07/16/creating-a-custom-view-that-filters-on-the-current-user.aspx
+
+
+<Field ID="{b92fdad1-e214-4199-8da2-0562a8f9f806}" 
+         FieldRef="{4bed4e36-30ba-488e-8189-749afef24fde}" 
+         Name="TSPayPeriodFromTo" 
+         DisplayName="TimeSheet Pay Period From-To"
+         Type="Lookup" 
+         Required="FALSE" 
+         ShowField="FromTo" 
+         List="Lists/PayPeriod"
+         Overwrite="TRUE"
+         Group="TGI Site Columns">
+    </Field>
+
+FieldRef="ID"
+
+caml query for filtered lookup column
+http://sharepoint.stackexchange.com/questions/163537/caml-query-for-filtered-lookup-column
+https://abstractspaces.wordpress.com/2008/05/05/caml-query-lookup-field-by-id-not-by-value/
+https://joshmccarty.com/2012/06/a-caml-query-quick-reference/
+
+Lookup filters in SharePoint works out of the box!
+http://www.balestra.be/2014/05/hidden-gem-ootb-lookup-filtering-sharepoint.html
+http://www.sharepointsiren.com/2013/05/sharepoint-2007-2010-2013-filtered.html
+
+filter by lookup field value using SharePoint REST
+http://stackoverflow.com/questions/26479319/sharepoint-2013-rest-how-to-select-a-look-up-field-and-also-filter-based-on-look
+http://www.andrewconnell.com/blog/Applying-Filters-to-Lookup-Fields-with-the-SP2013-REST-API
+
+SPServices
+http://spservices.codeplex.com/wikipage?title=%24%28%29.SPServices.SPFilterDropdown
+
+JSLink
+http://sharepoint.stackexchange.com/questions/125999/filtering-look-up-columns-with-javascript
+http://newtips.co/sharepoint/questions/125999/filtering-look-up-columns-with-javascript.html
+PNPJSlink
+https://github.com/OfficeDev/PnP/tree/master/Samples/Branding.JSLink
+https://kogzee.wordpress.com/2014/11/11/cascading-dropdowns-on-large-lists-in-sharepoint-using-jslink/
+
+*http://josharepoint.com/2015/12/17/caml-query-to-filter-lookup-field-by-id-using-jsom-in-office-365-sharepoint-2013/
+**http://www.markrackley.net/2014/05/20/cascading-drop-down-lists-in-sharepoint-office-365-using-rest/
+
+Last open URLS
+http://c4968397007/_layouts/15/start.aspx#/_catalogs/solutions/Forms/AllItems.aspx
+https://georgeinstitute.sharepoint.com/sites/Dev/completeMe/_layouts/15/start.aspx#/_layouts/15/viewlsts.aspx
+http://spjsblog.com/2010/05/28/get-or-set-value-for-sharepoint-field-in-newform-editform-and-dispform-get-only-in-dispform/
+https://social.msdn.microsoft.com/Forums/en-US/a9fb3163-109c-4309-96d2-4f2f19e6824a/sharepoint-and-jquerygetting-setting-sharepoint-form-fields?forum=sharepointgeneralprevious
+http://sharepoint.stackexchange.com/questions/136295/use-a-html-form-to-create-new-list-items
