@@ -64,35 +64,68 @@
 tsApp.controller('addNewTimesheetCtrl', ['$scope', 'FORM_STATUS', 'SharePointJSOMService', function($scope, FORM_STATUS, SharePointJSOMService) {
     console.log('in addNewTimesheetCtrl');
     $scope.warningMsg = "Warning! You should save form first by clicking save button then you are able to add your time logs.";
-    $scope.timesheetForm = [];      
+    $scope.timesheet = timesheet;
+    $scope.costCodes = [];
+    console.log("before call length is ="+costCodesCurrentUser.length);
+    if (costCodesCurrentUser.length == 0){getCostCodesCurretUser();}
+    else {$scope.costCodes=costCodesCurrentUser;}
+    console.log("Timesheet costCode="+timesheet.costCodeId.Description);
     
+    
+    $scope.changeCCDropdown= function($event) {
+      //$event.preventDefault();
+      //alert("$scope.timesheet.costCodeId="+$scope.timesheet.costCodeId);
+	}
+	
     $scope.addTimesheet = function($event) {
       $event.preventDefault();
 
-      $.when(SharePointJSOMService.addTimesheet(TSListName, $scope.timesheet.title))
-        .done(function(id) {
+      $.when(SharePointJSOMService.addTimesheetUpdateTSNumber($scope, TSListName))
+        .done(function(TimesheetNumber) {
 
-          console.log('in addNewTimesheetCtrl when SharePointJSOMService.addTimesheet');
+          console.log('in addNewTimesheetCtrl when SharePointJSOMService.addTimesheet TimesheetNumber='+TimesheetNumber);
+          $scope.timesheet.number = TimesheetNumber;
 		  $scope.warningMsg = "";
 	      $scope.successMsg = "Success: Form saved successfully. Now you can enter you time logs.";
-          $scope.timesheetForm.push({
-            text: $scope.timesheet.title,
-            id: timesheet.Id
-          });
-		console.log("timesheet="+timesheet.title+" "+timesheet.Id);
+
           //$scope is not updating so force with this command
           if (!$scope.$$phase) {
             $scope.$apply();
           }
-
-          $scope.timesheet.title = '';
-
+          //$scope.timesheet.title = '';
         })
         .fail(function(err) {
           console.info(JSON.stringify(err));
         });
 
-    };
+    };//end of function addTimesheet()
+    
+	function getCostCodesCurretUser(){
+	
+    $.when(SharePointJSOMService.getCostCodeListByREST($scope,"Employees"))
+      .done(function(jsonObject) {
+
+        console.log('in timesheetCtrl when call getCostCodesCurretUser');
+
+        angular.forEach(jsonObject.d.results, function(cc) {
+
+          $scope.costCodes.push({
+            Description: cc.CostCodeID.Description,
+            ID: cc.CostCodeID.ID
+          });
+          //$scope is not updating so force with this command
+          if (!$scope.$$phase) {
+            $scope.$apply();
+          }          
+        });
+        costCodesCurrentUser = $scope.costCodes;
+        console.log("in method getCostCodesCurretUser() costCodesCurrentUser length is ="+costCodesCurrentUser.length+" and $scope.costCodes length is ="+$scope.costCodes.length);
+      })
+      .fail(function(err) {
+        console.info(JSON.stringify(err));
+      });
+	
+	}//end of function getCostCodesCurretUser()
   
 }]);
 

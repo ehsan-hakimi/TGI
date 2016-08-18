@@ -10,6 +10,7 @@ var constEnum = { //not really an enum, just an object that serves a constant pu
 tsApp.service('SharePointJSOMService', function ($q, $http) {
    	console.log('in SharePointJSOMService');            
 	hostweburl=_spPageContextInfo.webAbsoluteUrl;   	
+	var TSID;
 	
     this.getAllTimesheetListByREST = function ($scope, listTitle) {
         var deferred = $.Deferred();
@@ -40,13 +41,13 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
                 deferred.reject(JSON.stringify(xhr));
             }
         });
-        return deferred;
+        return deferred.promise();
     };
 
 
-    this.addTimesheet = function (listTitle, title) {
-        var deferred = $.Deferred();
-   		console.log('in SharePointJSOMService call function addTimesheet');            
+    function addTimesheet($scope ,listTitle) {
+        var deferred = $.Deferred();       
+   		console.log('in SharePointJSOMService call function addTimesheet $scope.timesheet.costCodeId='+$scope.timesheet.costCodeId.ID);            
    		      
 		var context = new SP.ClientContext(hostweburl);
 		web  = context.get_web();
@@ -56,49 +57,93 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         // create the ListItemInformational object
         var listItemInfo = new SP.ListItemCreationInformation();
         var listItem = list.addItem(listItemInfo);
-        listItem.set_item('Title', title);
+        listItem.set_item('Title', $scope.timesheet.title);
+        
+		var ccLookupField = new SP.FieldLookupValue();
+		ccLookupField.set_lookupId($scope.timesheet.costCodeId.ID);
+		listItem.set_item("TSCostCode", ccLookupField);
+        
+        //listItem.set_item('TSCostCodeId', $scope.timesheet.costCodeId.ID);
         listItem.update();
-
         context.executeQueryAsync(
             function () {
-                var id = listItem.get_id();
-                console.log('ID of inserted record is = '+id);
-                deferred.resolve(id);
+                TSID = listItem.get_id();
+                console.log('ID of inserted record is = '+TSID );
+                deferred.resolve(TSID);
             },
             function (sender, args) {
                 deferred.reject('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
             }
         );
 
-        return deferred;
+        return deferred.promise();
     };
 
-        //save function on controller. This method probably hasn't been called yet
-    this.saveTimesheet = function (scope, listTitle) {
-        var deferred = $.Deferred();
-   		console.log('in SharePointJSOMService call function saveTimesheet');            
-   		
-         var context = new SP.ClientContext(hostweburl);
-    	 web  = context.get_web();
+    this.addTimesheetUpdateTSNumber = function ($scope ,listTitle) {
 
-        context.load(web);
-        var list = web.get_lists().getByTitle(TSListName);
-
-
-        var listItem = list.getItemById(scope.ts.id);
-        listItem.set_item('Title', scope.ts.text);
-        var status = 'Not started';
-        listItem.update();
-
-        context.executeQueryAsync(
-            Function.createDelegate(this, function (sender, args) {
-            }),
-            Function.createDelegate(this, function (sender, args) {
-                deferred.reject('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
-            })
-        );
-        return deferred.promise;
+   		console.log('in SharePointJSOMService call function updateTimesheetNumber ');            
+        var deferredUpdate = $.Deferred();  
+   		addTimesheet($scope, listTitle).then(
+        function (TSID) {
+				console.log("in Then TSID="+TSID );
+		        var context = new SP.ClientContext(hostweburl);
+				web  = context.get_web();
+				context.load(web);
+				var list = web.get_lists().getByTitle(listTitle);
+		        var listItem = list.getItemById(TSID);
+		        
+		        var timesheetNumber = 'TS-'+TSID;
+		        console.log("timesheetNumber ="+timesheetNumber );
+		        listItem.set_item('TSNumber', timesheetNumber );
+		
+		        listItem.update();
+		        console.log("update timesheetNumber successfully");
+		        context.executeQueryAsync(
+		            Function.createDelegate(this, function (sender, args) {
+		            	var TimesheetNumber = listItem.get_item('TSNumber');
+		                deferredUpdate.resolve(TimesheetNumber);
+		            }),
+		            Function.createDelegate(this, function (sender, args) {
+		                deferredUpdate.reject('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+		            })
+		        );
+		        
+			},
+			function (sender, args) {
+	                console.log('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+	        }
+	       );
+		   return deferredUpdate.promise();
     }
-    
+   
+    this.getCostCodeListByREST = function ($scope, listTitle) {
+        var deferred = $.Deferred();
+
+   		console.log('in SharePointJSOMService call function getCostCodeListByREST');     
+   		var currentUserID= _spPageContextInfo.userId;  
+   		console.log("userID="+currentUserID);
+        var restQueryUrl = hostweburl + "/_api/web/lists/getByTitle('" + listTitle + "')/items?$select="+
+        "CostCodeID/Description,CostCodeID/ID,EmpName/Title&$expand=CostCodeID,EmpName"+
+        "&$filter=EmpName/ID eq '"+"19'"+
+        "&$orderby=CostCodeID/Description desc";
+		//+currentUserID
+		console.log('restQueryUrl = '+restQueryUrl);
+        var executor = new SP.RequestExecutor(hostweburl);
+        executor.executeAsync({
+            url: restQueryUrl,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data, textStatus, xhr) {
+                deferred.resolve(JSON.parse(data.body));
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                deferred.reject(JSON.stringify(xhr));
+            }
+        });
+        return deferred.promise();
+    };
+
+
+
 });
    
