@@ -8,14 +8,19 @@
 	<div class="panel-heading">Timesheet form</div>
 	
 	<div class="panel-body">
-	<div class="form-horizontal" role="form">		        
+
+	<div ng-show="errorMsg" class="alert alert-danger">
+	  <span ng-bind="errorMsg"></span>
+	</div>
+
+	<div class="form-horizontal" role="form" ng-hide="errorMsg">		        
 
 		<div ng-show="warningMsg" class="alert alert-warning">
-		  <span>{{warningMsg}}</span>
+		  <span ng-bind="warningMsg"></span>
 		</div>
 
 		<div ng-show="successMsg" class="alert alert-success">
-		  <span>{{successMsg}}</span>
+		  <span ng-bind="successMsg"></span>
 		</div>
 		
 		<div class="form-group" ng-show="timesheet.number">
@@ -37,11 +42,20 @@
 		    <div class="col-sm-6">
 		    		<select ng-model="timesheet.costCodeId" ng-required="true" class="form-control" ng-change="changeCCDropdown($event)"
 		    				ng-options="costCode.Description for costCode in costCodes track by costCode.ID" id="timesheetCC" >
-		    				<option value="costCode.ID" ng-repeat="costCode in costCodes">{{costCode.Description}}</option>
-		    		</select>  
+
+		    		</select> 
 		    </div>
 		</div>
 		
+		<div class="form-group">
+		    <label for="timesheetPP" class="control-label col-sm-2">Pay Period:</label>
+		    <div class="col-sm-6">
+		    		<select ng-model="timesheet.payPeriodId" ng-required="true" class="form-control" 
+		    				ng-options="payPeriod.Description for payPeriod in payPeriods track by payPeriod.ID" id="timesheetPP" >
+		    		</select> 
+		    </div>
+		</div>
+
 		<div class="form-group"  ng-show="timesheet.number">
 			<div class="col-sm-offset-1 col-sm-2">
 			<a href="#/AddNewLog" class="btn btn-primary btn-md" role="button">

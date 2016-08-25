@@ -14,6 +14,11 @@
         <li class="list-group-item list-group-item-info">Draft (Timesheet not 
 		submitted)</li>
 	    <div class="panel-body table-responsive">      
+	       <br/><a href="#/AddNewTS/0/N" class="btn btn-primary btn-md" role="button">
+		  	<span class="glyphicon glyphicon-plus-sign"></span>
+		  	Add a new Timesheet
+		  </a>
+		  
 		  <table class="table table-hover">
 		    <thead class="thead-default">
 		      <tr>
@@ -42,10 +47,6 @@
 		      </tr>
 		    </tbody>
 		  </table>
-		  <br/><a href="#/AddNewTS" class="btn btn-primary btn-md" role="button">
-		  	<span class="glyphicon glyphicon-plus-sign"></span>
-		  	Add a new Timesheet
-		  </a>
   		</div>
 
 
