@@ -6,8 +6,7 @@ var constEnum = { //not really an enum, just an object that serves a constant pu
   MAX_RECORDS_PER_LIST : 20,
   LAST_N_MONTHS_TO_FETCH_ALL_TIMESHEET : -3,
   LAST_N_MONTHS_TO_FETCH_NEARBY_PAYPERIODS : -2,
-  NEXT_N_MONTHS_TO_FETCH_NEARBY_PAYPERIODS: 1,
-  PageMode : 'S'
+  NEXT_N_MONTHS_TO_FETCH_NEARBY_PAYPERIODS: 1
 }
 
 tsApp.service('SharePointJSOMService', function ($q, $http) {        
@@ -60,7 +59,9 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         var listItemInfo = new SP.ListItemCreationInformation();
         var listItem = list.addItem(listItemInfo);
         listItem.set_item('Title', $scope.timesheet.title);
-        
+        listItem.set_item('TSTotalMinute', 0);
+        listItem.set_item('TSRequesterComment', $scope.timesheet.requestorComment);
+                        
 		var ccLookupField = new SP.FieldLookupValue();
 		ccLookupField.set_lookupId($scope.timesheet.costCodeId.ID);
 		listItem.set_item("TSCostCode", ccLookupField);
@@ -161,10 +162,10 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
 	        });
 	        
 		} else{
-        	errorMessage = {'error':{'message':{'value':'Tmiesheet Number is not valid.'}}};
+        	errorMessage = {'error':{'message':{'value':'Timesheet Number is not valid.'}}};
         	
-        	console.info("Tmiesheet Number is not valid");
-        	deferred.reject("Tmiesheet Number is not valid", errorMessage );
+        	console.info("Timesheet Number is not valid");
+        	deferred.reject("Timesheet Number is not valid", errorMessage );
         }
         return deferred.promise();
     };

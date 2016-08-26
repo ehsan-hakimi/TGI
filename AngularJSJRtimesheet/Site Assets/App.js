@@ -11,7 +11,11 @@
 			statusDeclined : 'Declined by Manager',
 			statusEditForm : 'For Edit'
 	});
-
+	tsApp.constant('Page_Mode', {
+			initialSave : 'S',
+	        editMode : 'E'
+	});
+	  
 	tsApp.config(['$routeProvider',
 	  function($routeProvider) {
 	    $routeProvider
@@ -27,10 +31,14 @@
 			templateUrl: 'Admin.aspx',
 			controller: 'adminCtrl'
 	      })
-	      .when('/AddNewTS/:TSN/:PageMode', {
+	      .when('/AddNewTS/:TSN/:Page_Mode', {
 			templateUrl: 'NewTS.aspx',
 			controller: 'addNewTimesheetCtrl'
-	      })      
+	      })	      
+	      .when('/EditTS/:TSN/:Page_Mode', {
+			templateUrl: 'NewTS.aspx',
+			controller: 'addNewTimesheetCtrl'
+	      })            
 	      .otherwise("/");
 	}]);
 
@@ -38,6 +46,7 @@
 		{Id:0, title:"", status:"", totalMinute:0, payPeriodId:{ID:0, Description:""}, costCodeId:{ID:0, Description:""}, number:null, requestorComment:"", approverComment:"", visible:true};
 	var costCodesCurrentUser = [];
 	var payPeriodsNearby = [];
+	
 console.log("in App js ");
 
 $(document).ready(function () {

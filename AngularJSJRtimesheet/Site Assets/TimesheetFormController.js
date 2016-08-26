@@ -19,13 +19,14 @@
     return australiaTimeZoneDate.toLocaleDateString() + " " + australiaTimeZoneDate.getHours() + ":" + australiaTimeZoneDate.getMinutes();
   }
 
-tsApp.controller('timesheetCtrl', ['$scope', 'FORM_STATUS', 'SharePointJSOMService', function($scope, FORM_STATUS, SharePointJSOMService) {
+tsApp.controller('timesheetCtrl', ['$scope', 'FORM_STATUS', 'Page_Mode', 'SharePointJSOMService', function($scope, FORM_STATUS, Page_Mode, SharePointJSOMService) {
   SP.SOD.executeOrDelayUntilScriptLoaded(showAllTSLists, "SP.js");
 
   function showAllTSLists() {
     console.log('in timesheetCtrl showAllTSLists() function');
     $scope.timesheets = [];
     $scope.FORM_STATUS = FORM_STATUS;
+	$scope.Page_Mode = Page_Mode;    
 
     $.when(SharePointJSOMService.getAllTimesheetListByREST($scope, TSListName))
       .done(function(jsonObject) {
@@ -58,30 +59,21 @@ tsApp.controller('timesheetCtrl', ['$scope', 'FORM_STATUS', 'SharePointJSOMServi
   }
 }]);
 
-tsApp.controller('addNewTimesheetCtrl', ['$scope', 'FORM_STATUS', 'SharePointJSOMService', '$routeParams','$location', function($scope, FORM_STATUS, SharePointJSOMService, $routeParams, $location) {
+tsApp.controller('addNewTimesheetCtrl', ['$scope', 'FORM_STATUS', 'Page_Mode', 'SharePointJSOMService', '$routeParams','$location', function($scope, FORM_STATUS, Page_Mode, SharePointJSOMService, $routeParams, $location) {
     console.log('in addNewTimesheetCtrl TSN='+$routeParams.TSN); 
     $scope.costCodes = [];
     $scope.payPeriods = [];
 	$scope.timesheet = timesheet;    
 	$scope.warningMsg ="";
 	$scope.successMsg="";
+	$scope.Page_Mode = Page_Mode;
 	
-console.log('3 $scope.warningMsg= '+$scope.warningMsg+" $scope.successMsg= "+$scope.successMsg);			       			  
-    
     console.log("before call length is ="+costCodesCurrentUser.length);
-    if (costCodesCurrentUser.length === 0) {
-    		getCostCodesCurretUser();
-    	}
-    else{
-    		$scope.costCodes=costCodesCurrentUser;
-    	} 
-    	
-    if (payPeriodsNearby.length === 0) {
-    		getPayPeriodsNearby();
-    	}
-    else{
-    		$scope.payPeriods = payPeriodsNearby ;
-    	} 
+    if (costCodesCurrentUser.length === 0) { getCostCodesCurretUser(); }
+    else{ $scope.costCodes=costCodesCurrentUser;	} 
+    
+    if (payPeriodsNearby.length === 0) { getPayPeriodsNearby();	}
+    else{ $scope.payPeriods = payPeriodsNearby ; } 
     	  
     if($routeParams.TSN == 0){ //mode New
     	console.log("in New mode");
@@ -92,17 +84,32 @@ console.log('3 $scope.warningMsg= '+$scope.warningMsg+" $scope.successMsg= "+$sc
 	    $scope.timesheet.payPeriodId.ID = 0;
 	    $scope.timesheet.title="";		       			  	    
     }else{//mode Edit
-		if($routeParams.PageMode === 'S')
-			$scope.successMsg = "PageMode S Success: Form saved successfully. Now you can enter you time logs.";					
-		fetchTimesheet($scope , $routeParams.TSN);
-		console.log("6 in Edit mode $scope.warningMsg= "+$scope.warningMsg+" $scope.successMsg= "+$scope.successMsg );
-    } 
+		if($routeParams.Page_Mode === Page_Mode['initialSave'])
+			$scope.successMsg = "(Page_Mode initialSave) Success: Form saved successfully. Now you can enter you time logs.";				
+		
+		var fetch = fetchTimesheet($scope , $routeParams.TSN);
+		
+		fetch.then(function(){
+			if(!($scope.timesheet.status == FORM_STATUS['statusNewForm'] ) && !($scope.timesheet.status == FORM_STATUS['statusEditForm'] ) ){
+				$scope.$apply(function () {             
+					var errorMessage = {'error':{'message':{'value':'Tmiesheet with this status is not editable.'}}};
+					$scope.errorMsg = errorMessage.error.message.value;
+					console.info("Timesheet ID = "+$scope.timesheet.number+" Try for editing the timesheet which is in approval process!! You can't edit forms with this status");
+				});//end of apply
+			  }//end of if status not equal edit mode
+        });//end of then
+		console.log("in Edit mode $scope.warningMsg= "+$scope.warningMsg+" $scope.successMsg= "+$scope.successMsg+" $scope.errorMsg = "+$scope.errorMsg );
+    } //end of if Edit Mode
     
     $scope.changeCCDropdown= function($event) {
       //$event.preventDefault();
       
 	}//end of function changeCCDropdown()
-		
+	
+	$scope.isNewMode = function(){
+		return !(FORM_STATUS['statusNewForm'] === $scope.timesheet.status);
+	}
+	
     $scope.addTimesheet = function($event) {
       $event.preventDefault();
 
@@ -112,12 +119,12 @@ console.log('3 $scope.warningMsg= '+$scope.warningMsg+" $scope.successMsg= "+$sc
 	          console.log('in addNewTimesheetCtrl when done TimesheetNumber= '+TimesheetNumber);
 	          $scope.timesheet.number = TimesheetNumber;
 			  $routeParams.TSN = TimesheetNumber;
-			  $routeParams.PageMode = constEnum.PageMode;
+			  $routeParams.Page_Mode = Page_Mode['initialSave'];
 
 		  $scope.$apply(function () {
 			  $scope.warningMsg = "";
 		      $scope.successMsg = "Success: Form saved successfully. Now you can enter you time logs.";
-		  	 $location.path("/AddNewTS/"+$routeParams.TSN+"/"+$routeParams.PageMode);
+		  	 $location.path("/AddNewTS/"+$routeParams.TSN+"/"+$routeParams.Page_Mode);
 	      });  
         })
         .fail(function(err) {
@@ -129,8 +136,8 @@ console.log('3 $scope.warningMsg= '+$scope.warningMsg+" $scope.successMsg= "+$sc
     };//end of function addTimesheet()
     
     function fetchTimesheet($scope , timesheetNumber){
-    
-    $.when(SharePointJSOMService.getTimesheetByREST($scope,TSListName ,timesheetNumber))
+
+    var fetchPromise = $.when(SharePointJSOMService.getTimesheetByREST($scope,TSListName ,timesheetNumber))
       .done(function(data) { 
 		  $scope.$apply(function () {             
 	          var ts = data.d;
@@ -152,7 +159,8 @@ console.log('3 $scope.warningMsg= '+$scope.warningMsg+" $scope.successMsg= "+$sc
 			    console.info(JSON.stringify(err));
 		      	//if(JSON.stringify(msg).length > 0)
 				$scope.errorMsg = msg.error.message.value;
-      });    
+      });   
+      return fetchPromise;
     };//end of function fetchTimesheet()
     
 	function getCostCodesCurretUser(){

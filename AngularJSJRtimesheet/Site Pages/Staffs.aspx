@@ -1,11 +1,4 @@
-﻿<style type="text/css">
-		.thead-default{background-color:#fafafa;}
-		.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-		  background-color: #d9edf7; /*rgb(51, 122, 183);
-		  color:#eeeeee;*/
-		}
-</style>
-	<div class="container panel-group" >
+﻿<div class="container panel-group" >
 	  <h3>Staff page - TGI Timesheet system</h3>
 
 	  <div class="panel panel-primary">
@@ -14,9 +7,9 @@
         <li class="list-group-item list-group-item-info">Draft (Timesheet not 
 		submitted)</li>
 	    <div class="panel-body table-responsive">      
-	       <br/><a href="#/AddNewTS/0/N" class="btn btn-primary btn-md" role="button">
+	       <a href="#/AddNewTS/0/N" class="btn btn-primary btn-md" role="button">
 		  	<span class="glyphicon glyphicon-plus-sign"></span>
-		  	Add a new Timesheet
+		  	new Timesheet
 		  </a>
 		  
 		  <table class="table table-hover">
@@ -43,7 +36,11 @@
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.created}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.modified}}</td>
-		        <td>{{ts.TSID}}</td>
+		        <td>
+					<a href="#/EditTS/{{ts.TSID}}/{{Page_Mode['editMode']}}" class="btn btn-primary btn-sm btn-sm-nopadding" role="button">
+					  	<span class="glyphicon glyphicon-edit"></span> Edit</a>
+
+		        </td>
 		      </tr>
 		    </tbody>
 		  </table>
@@ -80,7 +77,10 @@
 		        <td class="hidden-xs">{{ts.approver}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.approverComment}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.modified}}</td>
-		        <td>{{ts.TSID}}</td>
+		        <td>
+		        	<a href="#/EditTS/{{ts.TSID}}/{{Page_Mode['editMode']}}" class="btn btn-primary btn-sm btn-sm-nopadding" role="button">
+				  	<span class="glyphicon glyphicon-edit"></span> Edit</a>
+				</td>
 		      </tr>
 		    </tbody>
 		  </table>

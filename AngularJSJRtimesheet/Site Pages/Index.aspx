@@ -16,29 +16,7 @@
 	<!-- Latest compiled and minified CSS -->
 	<SharePoint:CssRegistration ID="CssRegistration" Name="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" After="corev15.css" runat="server" __designer:Preview="&lt;link id=&quot;CssRegistration&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&quot;/&gt;
 " __designer:Values="&lt;P N=&#39;ID&#39; ID=&#39;1&#39; T=&#39;CssRegistration&#39; /&gt;&lt;P N=&#39;Name&#39; T=&#39;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css&#39; /&gt;&lt;P N=&#39;After&#39; T=&#39;corev15.css&#39; /&gt;&lt;P N=&#39;InDesign&#39; T=&#39;False&#39; /&gt;&lt;P N=&#39;Page&#39; ID=&#39;2&#39; /&gt;&lt;P N=&#39;TemplateControl&#39; R=&#39;2&#39; /&gt;&lt;P N=&#39;AppRelativeTemplateSourceDirectory&#39; R=&#39;-1&#39; /&gt;"/>
-
-	<style type="text/css">
-		#titleAreaBox, #s4-titlerow{
-			 display: none !important;
-	         width:0px !important;
-	         background-color:fuchsia !important;
-		}
-		.container{
-			margin-left:15px;
-			margin-right:15px;
-		}
-		#s4-ribbonrow{display:none}
-		@media only screen and (max-device-width: 480px)  {
-		     #sideNavBox,#s4-titlerow, #titleAreaBox ,#DeltaFormDigest{
-		          display: none !important;
-		          width:0px !important;
-		          background-color:fuchsia !important;
-		     }
-		     #contentBox{
-		     	margin-left:20px;
-			}
-		} 
-	</style>
+	<link rel="stylesheet" type="text/css" href="../SiteAssets/Timesheet.css"/>
 
 	<!-- jQuery library -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
