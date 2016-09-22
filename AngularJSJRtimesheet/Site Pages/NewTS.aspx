@@ -1,8 +1,5 @@
-﻿<style class="text/css">
-/*.form-horizontal .form-group::after{display:inline-block;	}*/
-
-</style>
-<div class="container">
+﻿<div class="block-ui-main" block-ui="main">
+<div class="container" >
 <br/>
 	<div class="panel panel-primary">
 	<div class="panel-heading">Timesheet form</div>
@@ -62,12 +59,8 @@
 		    </div>
 		</div>
 
-		<div class="form-group"  ng-show="timesheet.number">
-			<div class="col-sm-offset-1 col-sm-2">
-			<a href="#/AddNewLog" class="btn btn-primary btn-md" role="button">
-			  	<span class="glyphicon glyphicon-plus-sign"></span> Add a new log
-			</a>
-			</div>
+		<div  ng-show="timesheet.number">
+			<div ng-include="'TimeLog.aspx'"></div>
 		</div>
 		
 		<div class="form-group">
@@ -84,17 +77,18 @@
 		
 		<div class="form-group" ng-hide="timesheet.number">
 		    <div class="col-sm-offset-2 col-sm-2">
-		        <input class="btn-primary active" type="submit" value="Save" ng-click="addTimesheet($event)" />
+		        <input class="btn-primary active" type="submit" value="Next" ng-click="addTimesheet($event);" />
 		    </div>
 		</div>
 
 		<div class="form-group" ng-show="timesheet.number">
 			<div class="col-sm-offset-10 col-sm-2">
-		        <input class="btn-primary active" type="submit" value="Save & Exit" ng-click="addTimesheet($event)" />
+		        <input class="btn-primary active" type="submit" value="Save & Exit" ng-click="updateTimesheet($event);" />
 			</div>
 		</div>
 		
 	</div>	
 	</div>
 	</div>
+</div>
 </div>

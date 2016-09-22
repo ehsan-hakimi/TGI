@@ -2,6 +2,7 @@
   date.setMonth(date.getMonth() + months);
   return date;
 }
+
 var constEnum = { //not really an enum, just an object that serves a constant purpose
   MAX_RECORDS_PER_LIST : 20,
   LAST_N_MONTHS_TO_FETCH_ALL_TIMESHEET : -3,
@@ -45,15 +46,13 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         return deferred.promise();
     };
 
-
+  
     function addTimesheet ($scope ,listTitle) {
         var deferred = $.Deferred();       
    		console.log('in SharePointJSOMService call function addTimesheet $scope.timesheet.costCodeId='+$scope.timesheet.costCodeId.ID);            
    		      
 		var context = new SP.ClientContext(hostweburl);
-		web  = context.get_web();
-		context.load(web);
-		var list = web.get_lists().getByTitle(listTitle);
+		var list = context.get_web().get_lists().getByTitle(listTitle);
 
         // create the ListItemInformational object
         var listItemInfo = new SP.ListItemCreationInformation();
@@ -71,10 +70,49 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
 		listItem.set_item("TSPayPeriodFromTo", ppLookupField);
         
         listItem.update();
+        context.load(listItem);
+        
         context.executeQueryAsync(
             function () {
                 TSID = listItem.get_id();
                 console.log('ID of inserted record is = '+TSID );
+                deferred.resolve(TSID);
+            },
+            function (sender, args) {
+                deferred.reject(sender, args);
+            }
+        );
+
+        return deferred.promise();
+    };
+    
+    this.updateTimesheet = function ($scope ,listTitle) {
+        var deferred = $.Deferred();       
+   		console.log('in SharePointJSOMService call function updateTimesheet ');            
+   		      
+		var context = new SP.ClientContext(hostweburl);
+		var list = context.get_web().get_lists().getByTitle(listTitle);
+		
+        var listItem = list.getItemById($scope.timesheet.Id);
+        
+        listItem.set_item('Title', $scope.timesheet.title);
+        listItem.set_item('TSRequesterComment', $scope.timesheet.requestorComment);
+                        
+		var ccLookupField = new SP.FieldLookupValue();
+		ccLookupField.set_lookupId($scope.timesheet.costCodeId.ID);
+		listItem.set_item("TSCostCode", ccLookupField);
+
+		var ppLookupField = new SP.FieldLookupValue();
+		ppLookupField.set_lookupId($scope.timesheet.payPeriodId.ID);
+		listItem.set_item("TSPayPeriodFromTo", ppLookupField);
+        
+        listItem.update();
+        context.load(listItem);
+        
+        context.executeQueryAsync(
+            function () {
+                TSID = listItem.get_id();
+                console.log('ID of updated record is = '+TSID );
                 deferred.resolve(TSID);
             },
             function (sender, args) {
@@ -226,6 +264,88 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         return deferred.promise();
     };
 
+//*****************************************Start Time Log section *************************************************
+
+    this.getAllTimelogsByREST = function ($scope, listTitle, timesheetID) {
+        var deferred = $.Deferred();
+        //First we must call the EnsureSetup method
+        JSRequest.EnsureSetup();
+
+   		console.log('in SharePointJSOMService call function getAllTimelogsByREST');            
+   	
+        var restQueryUrl = hostweburl + "/_api/web/lists/getByTitle('" + listTitle + "')/items?$select=ID,Title,TSLogDate,TSStartTime,TSFinishTime,TSLogBreak,TSLogSubtotalMinutes"+
+        "&$filter=Title eq '"+timesheetID+"'"+
+        "&$orderby=TSLogDate asc,TSStartTime asc";
+		
+		console.log('restQueryUrl = '+restQueryUrl);
+        var executor = new SP.RequestExecutor(hostweburl);
+        executor.executeAsync({
+            url: restQueryUrl,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data, textStatus, xhr) {
+                deferred.resolve(JSON.parse(data.body));
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                deferred.reject(JSON.stringify(xhr));
+            }
+        });
+        return deferred.promise();
+    };
+
+    this.addTimeLog  = function (data, listTitle, timesheetNumber, subtotalMins) {
+        var deferred = $.Deferred();       
+   		console.log('in SharePointJSOMService call function addTimeLog');            
+   		      
+		var context = new SP.ClientContext(hostweburl);
+		var list = context.get_web().get_lists().getByTitle(listTitle);
+
+        // create the ListItemInformational object
+        var listItemInfo = new SP.ListItemCreationInformation();
+        var listItem = list.addItem(listItemInfo);
+        listItem.set_item('Title', timesheetNumber);
+        listItem.set_item('TSLogDate', data.LogDate);
+        listItem.set_item('TSStartTime', data.StartTime);
+        listItem.set_item('TSFinishTime', data.FinishTime);
+        listItem.set_item('TSLogBreak', data.LogBreak);
+        listItem.set_item('TSLogSubtotalMinutes', subtotalMins);                
+
+        listItem.update();
+        context.load(listItem);
+        
+        context.executeQueryAsync(
+            function () {
+                TimeLogID = listItem.get_id();
+                console.log('ID of inserted time log record is = '+TimeLogID );
+                deferred.resolve(TimeLogID);
+            },
+            function (sender, args) {
+                deferred.reject(sender, args);
+            }
+        );
+
+        return deferred.promise();
+    };
+	this.deleteTimeLog = function (listTitle, itemId){
+        var deferred = $.Deferred();       
+   		console.log('in SharePointJSOMService call function deleteTimeLog '+itemId);            
+   		      
+		var context = new SP.ClientContext(hostweburl);
+	    var listItem = context.get_web().get_lists().getByTitle(listTitle).getItemById(itemId);
+	    listItem.deleteObject();
+	
+	    context.executeQueryAsync(
+	            function () {
+	                console.log('ID of deleted time log record is = ');
+	                deferred.resolve();
+	            },
+	            function (sender, args) {
+	                deferred.reject(sender, args);
+	            }
+	    );
+        return deferred.promise(); 
+	}	
+//*****************************************End Time Log section *************************************************
 
 });
    

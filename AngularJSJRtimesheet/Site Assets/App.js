@@ -1,8 +1,10 @@
 ﻿	var TSListName = 'TimeSheetList';
+	var TimeLogListName = 'TSDetails';
 	var EmpListName = 'Employees';
 	var PayPeriodListName = 'Pay Period';
 	var TSNumberPrefix = 'TS-';
-	var tsApp = angular.module('tsApp', ["ngRoute"]);
+	
+	var tsApp = angular.module('tsApp', ['blockUI','ngRoute','xeditable','ui.bootstrap']);
 	
 	tsApp.constant('FORM_STATUS', {
 			statusNewForm : 'New Form',
@@ -15,9 +17,16 @@
 			initialSave : 'S',
 	        editMode : 'E'
 	});
+	tsApp.run(function(editableOptions) {
+	  editableOptions.theme = 'bs3'; 
+	});	  
+	tsApp.config(['$routeProvider','blockUIConfig',
+	  function($routeProvider,blockUIConfig) {
 	  
-	tsApp.config(['$routeProvider',
-	  function($routeProvider) {
+		blockUIConfig.message = 'Please wait...!';
+		blockUIConfig.delay = 100;
+		blockUIConfig.autoInjectBodyBlock = false;
+		
 	    $routeProvider
 	      .when('/Staffs', {
 			templateUrl: 'Staffs.aspx',
@@ -43,7 +52,7 @@
 	}]);
 
 	var timesheet = 
-		{Id:0, title:"", status:"", totalMinute:0, payPeriodId:{ID:0, Description:""}, costCodeId:{ID:0, Description:""}, number:null, requestorComment:"", approverComment:"", visible:true};
+		{Id:0, title:"", status:"", totalMinute:0, payPeriodId:{ID:0, Description:""}, costCodeId:{ID:0, Description:""}, number:null, requestorComment:"", approverComment:"", visible:true, selectedTimeLog:{ID:0 }, timelogs:[] };
 	var costCodesCurrentUser = [];
 	var payPeriodsNearby = [];
 	

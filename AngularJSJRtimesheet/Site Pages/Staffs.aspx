@@ -32,7 +32,7 @@
 				<td>{{ts.number}}</td>		        
 		        <td>{{ts.Payperiod}}</td>
 		        <td class="hidden-xs">{{ts.Costcode}}</td>
-		        <td>{{ts.totalHours}}</td>
+		        <td>{{ts.totalHours | minuteToHour}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.created}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.modified}}</td>
@@ -72,7 +72,7 @@
 		        <td>{{ts.number}}</td>		        
 		        <td>{{ts.Payperiod}}</td>
 		        <td class="hidden-xs">{{ts.Costcode}}</td>
-		        <td>{{ts.totalHours}}</td>
+		        <td>{{ts.totalHours | minuteToHour}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs">{{ts.approver}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.approverComment}}</td>
@@ -111,7 +111,7 @@
 		        <td>{{ts.number}}</td>		        
 		        <td>{{ts.Payperiod}}</td>
 		        <td class="hidden-xs">{{ts.Costcode}}</td>
-		        <td>{{ts.totalHours}}</td>
+		        <td>{{ts.totalHours | minuteToHour}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs">{{ts.approver}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.modified}}</td>
@@ -146,7 +146,7 @@
 		        <td>{{ts.number}}</td>		        
 		        <td>{{ts.Payperiod}}</td>
 		        <td class="hidden-xs">{{ts.Costcode}}</td>
-		        <td>{{ts.totalHours}}</td>
+		        <td>{{ts.totalHours | minuteToHour}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs">{{ts.approver}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.approverComment}}</td>
@@ -182,7 +182,7 @@
 		        <td>{{ts.number}}</td>		        
 		        <td>{{ts.Payperiod}}</td>
 		        <td class="hidden-xs">{{ts.Costcode}}</td>
-		        <td>{{ts.totalHours}}</td>
+		        <td>{{ts.totalHours | minuteToHour}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs">{{ts.approver}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.approverComment}}</td>

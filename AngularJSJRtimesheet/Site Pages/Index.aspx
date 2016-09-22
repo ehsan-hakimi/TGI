@@ -14,8 +14,11 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 
 	<!-- Latest compiled and minified CSS -->
-	<SharePoint:CssRegistration ID="CssRegistration" Name="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" After="corev15.css" runat="server" __designer:Preview="&lt;link id=&quot;CssRegistration&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&quot;/&gt;
-" __designer:Values="&lt;P N=&#39;ID&#39; ID=&#39;1&#39; T=&#39;CssRegistration&#39; /&gt;&lt;P N=&#39;Name&#39; T=&#39;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css&#39; /&gt;&lt;P N=&#39;After&#39; T=&#39;corev15.css&#39; /&gt;&lt;P N=&#39;InDesign&#39; T=&#39;False&#39; /&gt;&lt;P N=&#39;Page&#39; ID=&#39;2&#39; /&gt;&lt;P N=&#39;TemplateControl&#39; R=&#39;2&#39; /&gt;&lt;P N=&#39;AppRelativeTemplateSourceDirectory&#39; R=&#39;-1&#39; /&gt;"/>
+
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link href="../SiteAssets/xeditable.min.css" rel="stylesheet"/>		
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../SiteAssets/Timesheet.css"/>
 
 	<!-- jQuery library -->
@@ -25,8 +28,12 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>	
+	
+	<script type="text/javascript" src="../SiteAssets/xeditable.min.js"></script>		
 	<script type="text/javascript" src="../SiteAssets/App.js"></script>
 	<script type="text/javascript" src="../SiteAssets/TimesheetFormController.js"></script>
 	<script type="text/javascript" src="../SiteAssets/SharePointServices.js"></script>
