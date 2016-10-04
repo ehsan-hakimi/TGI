@@ -1,4 +1,22 @@
-﻿<div class="container panel-group" >
+﻿<style type="text/css">
+.multipleBtn{
+	min-width: 75px !important;	
+}
+
+@media screen and (min-width: 768px){
+  .multipleBtn{
+	min-width: 115px !important;	
+	}
+}
+@media screen and (min-width: 992px){
+	.multipleBtn{
+		min-width: 135px !important;	
+	}
+  
+}
+
+</style>
+<div class="container panel-group" >
 	  <h3>Staff page - TGI Timesheet system</h3>
 
 	  <div class="panel panel-primary">
@@ -36,10 +54,12 @@
 		        <td class="hidden-xs hidden-sm">{{ts.status}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.created}}</td>
 		        <td class="hidden-xs hidden-sm">{{ts.modified}}</td>
-		        <td>
-					<a href="#/EditTS/{{ts.TSID}}/{{Page_Mode['editMode']}}" class="btn btn-primary btn-sm btn-sm-nopadding" role="button">
+		        <td><div class="multipleBtn" >
+					<a href="#/EditTS/{{ts.TSID}}/{{Page_Mode['editMode']}}" class="btn btn-primary btn-autosize" role="button" >
 					  	<span class="glyphicon glyphicon-edit"></span> Edit</a>
-
+					<button type="button" class="btn btn-danger btn-sm-nopadding btn-autosize" ng-click="removeTimesheet($event, ts.TSID , ts.number, $index)" >
+					  	<span class="glyphicon glyphicon-remove"></span> Del</button>
+					</div>
 		        </td>
 		      </tr>
 		    </tbody>

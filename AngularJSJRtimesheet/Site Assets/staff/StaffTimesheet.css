@@ -29,6 +29,7 @@
 
 .btn-sm-nopadding{
 padding: 1px 3px;
+min-width:4em;
 }
 
 /*stylesheet for AddNewTS.aspx*/
@@ -42,6 +43,33 @@ body{
 .form-horizontal .height-fix{
 	height:34px;
 }
+.form-horizontal label.wrap-fix{
+	white-space:nowrap;
+}
 #TSnumberLable,#TSstatusLable{
 	font-size:1.1em;
+}
+/*for all button to make them responsive*/
+.btn-autosize {
+  padding: 2px 5px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 768px){
+  .btn-autosize {
+    padding: 3px 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    border-radius: 5px;
+  }
+}
+@media screen and (min-width: 992px){
+  .btn-autosize {
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.3;
+    border-radius: 7px;
+  } 
 }

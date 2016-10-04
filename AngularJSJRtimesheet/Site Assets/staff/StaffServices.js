@@ -1,4 +1,23 @@
-﻿function addMonths(date, months) {
+﻿function convertUserLocalDateToAUTimezone(d) {
+
+    // d is based on users browser timezone
+    // convert to msec
+    // add local time zone offset 
+    // get UTC time in msec
+    var offset = d.getTimezoneOffset();
+    	
+    utc = d.getTime() + (offset * 60000);
+    
+    // create new Date object for different city
+    // using supplied offset 10 for Australia timezone. SP site reginal setting should be AU +10 sydney
+//    var dateTimezoneAU = new Date(utc );
+    var dateTimezoneAU = new Date(utc + (3600000*10));
+    
+    // return time as a string
+    return  dateTimezoneAU;
+}
+ 
+function addMonths(date, months) {
   date.setMonth(date.getMonth() + months);
   return date;
 }
@@ -10,11 +29,13 @@ var constEnum = { //not really an enum, just an object that serves a constant pu
   NEXT_N_MONTHS_TO_FETCH_NEARBY_PAYPERIODS: 1
 }
 
-tsApp.service('SharePointJSOMService', function ($q, $http) {        
+tsApp.service('SharePointJSOMService', function ($q, $http) {     
+	var serviceSPJSOM = this;
+   
 	hostweburl=_spPageContextInfo.webAbsoluteUrl;   	
 	var TSID;
 	
-    this.getAllTimesheetListByREST = function ($scope, listTitle) {
+    this.getAllTimesheetListByREST = function ( listTitle) {
         var deferred = $.Deferred();
         //First we must call the EnsureSetup method
         JSRequest.EnsureSetup();
@@ -22,7 +43,7 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
    		console.log('in SharePointJSOMService call function getAllTimesheetListByREST');            
    	
 		var today = new Date();
-		var dateOfLastRecordToShow=addMonths(today , constEnum.LAST_N_MONTHS_TO_FETCH_ALL_TIMESHEET);
+		var dateOfLastRecordToShow = addMonths(today , constEnum.LAST_N_MONTHS_TO_FETCH_ALL_TIMESHEET);
 		console.log(dateOfLastRecordToShow.toISOString());
 
         var restQueryUrl = hostweburl + "/_api/web/lists/getByTitle('" + listTitle + "')/items?$select=ID,Title,TSStatus,TSApproverComment,TSPayPeriodFromTo/FromTo"+
@@ -178,7 +199,9 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
 		if(!isNaN(parseInt(timesheetID))){
 			timesheetID = parseInt(timesheetID);
 	   		console.log("in SharePointJSOMService call function getTimesheetByREST");
-	        var restQueryUrl = hostweburl + "/_api/web/lists/getByTitle('" + listTitle + "')/items('"+timesheetID+"')";
+	        //var restQueryUrl = hostweburl + "/_api/web/lists/getByTitle('" + listTitle + "')/items('"+timesheetID+"')";
+	        var restQueryUrl = hostweburl +"/_api/web/lists/getByTitle('" + listTitle + "')/items?$select=ID,TSNumber,Title,TSStatus,TSTotalMinute,TSPayPeriodFromToId,TSCostCodeId,TSRequesterComment,TSApproverComment,TSVisible,"+
+	        								"TSPayPeriodFromTo/FromDate,TSPayPeriodFromTo/ToDate0&$expand=TSPayPeriodFromTo&$filter=ID eq '"+timesheetID+"'";
 	
 			console.log('restQueryUrl = '+restQueryUrl);
 
@@ -209,7 +232,7 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
     };
     
    
-    this.getCostCodeListByREST = function ($scope, listTitle) {
+    this.getCostCodeListByREST = function ( listTitle) {
         var deferred = $.Deferred();
 
    		var currentUserID= _spPageContextInfo.userId;  
@@ -235,7 +258,7 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         return deferred.promise();
     };
 
-    this.getPayPeriodsByREST = function ($scope, listTitle) {
+    this.getPayPeriodsByREST = function ( listTitle) {
         var deferred = $.Deferred();
 
    		var lastTwoMonth = addMonths(new Date(), constEnum.LAST_N_MONTHS_TO_FETCH_NEARBY_PAYPERIODS );
@@ -264,9 +287,37 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         return deferred.promise();
     };
 
+	this.deleteTimesheet = function (listNameTS, listNameTL, itemId , tsNumber){
+        var deferred = $.Deferred();       
+   		console.log('in SharePointJSOMService call function deleteTimesheet ='+itemId );            
+   		      
+		var context = new SP.ClientContext(hostweburl);
+	    var listItem = context.get_web().get_lists().getByTitle(listNameTS).getItemById(itemId);
+	    listItem.deleteObject();
+		$.when(this.getAllTimelogsByREST( listNameTL, tsNumber))
+	      .done(function(jsonObject) {
+	        angular.forEach(jsonObject.d.results, function(tl) {
+				serviceSPJSOM.deleteTimeLog(listNameTL, tl.Id);
+	        });
+	      })
+	      .fail(function(err) {
+	        console.info(JSON.stringify(err));
+	      });
+		
+	    context.executeQueryAsync(
+	            function () {
+	                deferred.resolve();
+	            },
+	            function (sender, args) {
+	                deferred.reject(sender, args);
+	            }
+	    );
+        return deferred.promise(); 
+	}	
+
 //*****************************************Start Time Log section *************************************************
 
-    this.getAllTimelogsByREST = function ($scope, listTitle, timesheetID) {
+    this.getAllTimelogsByREST = function ( listTitle, timesheetID) {
         var deferred = $.Deferred();
         //First we must call the EnsureSetup method
         JSRequest.EnsureSetup();
@@ -304,7 +355,7 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
         var listItemInfo = new SP.ListItemCreationInformation();
         var listItem = list.addItem(listItemInfo);
         listItem.set_item('Title', timesheetNumber);
-        listItem.set_item('TSLogDate', data.LogDate);
+        listItem.set_item('TSLogDate', convertUserLocalDateToAUTimezone(data.LogDate));
         listItem.set_item('TSStartTime', data.StartTime);
         listItem.set_item('TSFinishTime', data.FinishTime);
         listItem.set_item('TSLogBreak', data.LogBreak);
@@ -326,7 +377,40 @@ tsApp.service('SharePointJSOMService', function ($q, $http) {
 
         return deferred.promise();
     };
-	this.deleteTimeLog = function (listTitle, itemId){
+    
+    this.updateTimeLog  = function (data, listTitle, timeLogID, subtotalMins) {
+        var deferred = $.Deferred();       
+   		console.log('in SharePointJSOMService call function updateTimeLog');            
+   		      
+		var context = new SP.ClientContext(hostweburl);
+		var list = context.get_web().get_lists().getByTitle(listTitle);
+
+        var listItem = list.getItemById(timeLogID);
+
+        listItem.set_item('TSLogDate', data.LogDate);
+        listItem.set_item('TSStartTime', data.StartTime);
+        listItem.set_item('TSFinishTime', data.FinishTime);
+        listItem.set_item('TSLogBreak', data.LogBreak);
+        listItem.set_item('TSLogSubtotalMinutes', subtotalMins);                
+
+        listItem.update();
+        context.load(listItem);
+        
+        context.executeQueryAsync(
+            function () {
+                TimeLogID = listItem.get_id();
+                console.log('ID of updated time log record is = '+TimeLogID );
+                deferred.resolve(TimeLogID);
+            },
+            function (sender, args) {
+                deferred.reject(sender, args);
+            }
+        );
+
+        return deferred.promise();
+    };
+    
+	this.deleteTimeLog = function(listTitle, itemId){
         var deferred = $.Deferred();       
    		console.log('in SharePointJSOMService call function deleteTimeLog '+itemId);            
    		      

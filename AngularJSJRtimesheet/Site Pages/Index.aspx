@@ -10,16 +10,14 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
 	<!-- Latest compiled and minified CSS -->
-
-
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<link href="../SiteAssets/xeditable.min.css" rel="stylesheet"/>		
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../SiteAssets/Timesheet.css"/>
+	<link rel="stylesheet" type="text/css" href="../SiteAssets/staff/StaffTimesheet.css"/>
 
 	<!-- jQuery library -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -35,8 +33,9 @@
 	
 	<script type="text/javascript" src="../SiteAssets/xeditable.min.js"></script>		
 	<script type="text/javascript" src="../SiteAssets/App.js"></script>
-	<script type="text/javascript" src="../SiteAssets/TimesheetFormController.js"></script>
-	<script type="text/javascript" src="../SiteAssets/SharePointServices.js"></script>
+	<script type="text/javascript" src="../SiteAssets/staff/StaffTimesheetController.js"></script>
+	<script type="text/javascript" src="../SiteAssets/staff/StaffServices.js"></script>
+	<script type="text/javascript" src="../SiteAssets/admin/AdminTimesheetController.js"></script>	
 </asp:Content>
     
 

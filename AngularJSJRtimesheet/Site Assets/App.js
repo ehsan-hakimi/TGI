@@ -4,7 +4,10 @@
 	var PayPeriodListName = 'Pay Period';
 	var TSNumberPrefix = 'TS-';
 	
-	var tsApp = angular.module('tsApp', ['blockUI','ngRoute','xeditable','ui.bootstrap']);
+	var adminModule = angular.module('AdminModule', []);	
+	var staffModule = angular.module('StaffModule', ['blockUI','ngRoute','xeditable','ui.bootstrap']);
+		
+	var tsApp = angular.module('tsApp', ['StaffModule','AdminModule']);
 	
 	tsApp.constant('FORM_STATUS', {
 			statusNewForm : 'New Form',
@@ -29,25 +32,25 @@
 		
 	    $routeProvider
 	      .when('/Staffs', {
-			templateUrl: 'Staffs.aspx',
-			controller: 'timesheetCtrl'
+			templateUrl: 'staff/Staffs.aspx',
+			controller: 'staffTimesheetListCtrl'
 	      })
 	      .when('/Managers', {
-			templateUrl: 'Managers.aspx',
+			templateUrl: 'manager/Managers.aspx',
 			controller: 'managerCtrl'
 	      })
 	      .when('/Admins', {
-			templateUrl: 'Admin.aspx',
+			templateUrl: 'admin/Admin.aspx',
 			controller: 'adminCtrl'
 	      })
 	      .when('/AddNewTS/:TSN/:Page_Mode', {
-			templateUrl: 'NewTS.aspx',
-			controller: 'addNewTimesheetCtrl'
+			templateUrl: 'staff/TSForm.aspx',
+			controller: 'staffTimesheetAddUpdateCtrl'
 	      })	      
 	      .when('/EditTS/:TSN/:Page_Mode', {
-			templateUrl: 'NewTS.aspx',
-			controller: 'addNewTimesheetCtrl'
-	      })            
+			templateUrl: 'staff/TSForm.aspx',
+			controller: 'staffTimesheetAddUpdateCtrl'
+	      })	                  
 	      .otherwise("/");
 	}]);
 
@@ -56,8 +59,8 @@
 	var costCodesCurrentUser = [];
 	var payPeriodsNearby = [];
 	
-console.log("in App js ");
+console.log("in tsApp js ");
 
 $(document).ready(function () {
-	console.log("in App js in document ready");
+	console.log("in tsApp js in document ready");
 });
